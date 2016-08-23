@@ -1,0 +1,46 @@
+--------- NAME CONVENTIONS --------------------------
+
+Activity Name: activity_NAME
+Layout XML Name: activity_NAME_COMPONENT_DESCRIPTION
+COMPONENT can be:
+
+Button - btn
+EditText - et
+TextView - tv
+Checkbox - chk
+RadioButton - rb
+ToggleButton - tb
+Spinner - spn
+Menu - mnu
+ListView - lv
+GalleryView - gv
+LinearLayout -ll
+RelativeLayout - rl
+
+Example:
+activity_login
+
+activity_login_btn_login
+
+############################################################
+Variable names:
+
+Non-public, non-static field names start with m.
+Static field names start with s.
+Other fields start with a lower case letter.
+Public static final fields (constants) are ALL_CAPS_WITH_UNDERSCORES.
+
+Example:
+
+public static final SOME_CONSTANT = 42;
+public int publicField;
+private int mAge;
+private static Class sClass;
+
+############################################################
+Links
+https://source.android.com/source/code-style.html
+https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md
+############################################################
+------------------------------------------------------------
+
