@@ -38,6 +38,12 @@ public class AppUtils {
         }
     }
 
+    /**
+     * Método auxiliar para validação do CPF
+     * @param str
+     * @param peso
+     * @return
+     */
     private static int calcularDigito(String str, int[] peso) {
         int soma = 0;
         for (int indice=str.length()-1, digito; indice >= 0; indice-- ) {
@@ -68,7 +74,24 @@ public class AppUtils {
      * @return se o CNS é válido
      */
     public static Boolean isCNSValido(String cns) {
-        return !cns.trim().matches("");
+        if (cns.matches("[1-2]\\d{10}00[0-1]\\d") || cns.matches("[7-9]\\d{14}")) {
+            return somaPonderada(cns) % 11 == 0;
+        }
+        return false;
+    }
+
+    /**
+     * Método auxiliar para validação do CNS
+     * @param s
+     * @return
+     */
+    private static int somaPonderada(String s) {
+        char[] cs = s.toCharArray();
+        int soma = 0;
+        for (int i = 0; i < cs.length; i++) {
+            soma += Character.digit(cs[i], 10) * (15 - i);
+        }
+        return soma;
     }
 
     /**

@@ -12,9 +12,9 @@
     <string name="activity_cadastrocidadao_tituloactivity">Cadastrar Cidadão</string>
     <string name="activity_cadastrocidadao_dadosbasicos">Dados Básicos</string>
     <string name="activity_cadastrocidadao_nome">Nome:</string>
-    <string name="activity_cadastrocidadao_cpf">CPF:</string>
+    <string name="activity_cadastrocidadao_cpf">Cadastro de Pessoa Física(CPF):</string>
     <string name="activity_cadastrocidadao_naotenhocns">Não tenho CNS</string>
-    <string name="activity_cadastrocidadao_cns">CNS:</string>
+    <string name="activity_cadastrocidadao_cns">Cartão Nacional de Saúde (CNS):</string>
     <string name="activity_cadastrocidadao_datanascimento">Data de Nascimento:</string>
     <string-array name="activity_cadastrocidadao_estados">
         <item>AC</item>
