@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:maxLength="11"/>
+                android:maxLength="15"/>
 
             <CheckBox
                 android:id="@+id/activity_cadastrocidadao_chk_naotenhocns"
