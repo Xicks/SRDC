@@ -63,7 +63,6 @@ public class CadastroCidadaoActivity extends AppCompatActivity {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 mDataNascimento.set(year, monthOfYear, dayOfMonth);
-                Log.d("DATA",mDataNascimento.get(Calendar.YEAR) + "");
                 mETDataNascimento.setText(new SimpleDateFormat("dd/MM/yyyy")
                         .format(mDataNascimento.getTime()));
             }
