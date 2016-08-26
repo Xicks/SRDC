@@ -1,12 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activity.CadastroCidadaoActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/activity_cadastrocidadao_tv_dadosbasicos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_dadosbasicos"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/activity_cadastrocidadao_tv_nome"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_nome"/>
+
+            <EditText
+                android:id="@+id/activity_cadastrocidadao_et_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="50"/>
+
+            <TextView
+                android:id="@+id/activity_cadastrocidadao_tv_cns"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_cns"/>
+
+            <EditText
+                android:id="@+id/activity_cadastrocidadao_et_cns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="11"/>
+
+            <CheckBox
+                android:id="@+id/activity_cadastrocidadao_chk_naotenhocns"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/activity_cadastrocidadao_naotenhocns"
+                android:layout_gravity="center_horizontal"
+                android:onClick="mudarCheckbox"/>
+
+            <TextView
+                android:id="@+id/activity_cadastrocidadao_tv_cpf"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_cpf"
+                android:enabled="false"/>
+
+            <EditText
+                android:id="@+id/activity_cadastrocidadao_et_cpf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:enabled="false"
+                android:maxLength="11"/>
+
+            <TextView
+                android:id="@+id/activity_cadastrocidadao_tv_datanascimento"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_datanascimento" />
+
+            <EditText
+                android:id="@+id/activity_cadastrocidadao_et_datanascimento"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="escolherDataDeNascimento"
+                android:inputType="none"
+                android:editable="false">
+            </EditText>
+
+            <TextView
+                android:id="@+id/activity_cadastrocidadao_tv_cidade"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_cidade" />
+
+            <EditText
+                android:id="@+id/activity_cadastrocidadao_et_cidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="30"/>
+
+            <TextView
+                android:id="@+id/activity_cadastrocidadao_tv_estado"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_estado" />
+
+            <Spinner
+                android:id="@+id/activity_cadastrocidadao_spn_estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Spinner>
+
+            <TextView
+                android:id="@+id/activity_cadastrocidadao_tv_dadosdeseguranca"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_dadosdeseguranca"
+                android:textStyle="bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@android:color/darker_gray"/>
+
+            <TextView
+                android:id="@+id/activity_cadastrocidadao_tv_senha"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_senha"/>
+
+            <EditText
+                android:id="@+id/activity_cadastrocidadao_et_senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:maxLength="11"/>
+
+            <TextView
+                android:id="@+id/activity_cadastrocidadao_tv_infosenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_informacaosenha"/>
+
+            <Button
+                android:id="@+id/activity_cadastrocidadao_btn_cadastrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_cadastrocidadao_cadastrar"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:onClick="cadastrar"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

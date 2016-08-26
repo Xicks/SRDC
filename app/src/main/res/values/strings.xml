@@ -1,4 +1,71 @@
 <resources>
     <string name="app_name">SRDC</string>
-    <string name="title_activity_configuracao">ConfiguracaoActivity</string>
+    <string name="empty"></string>
+    <!-- ACTIVITY LOGIN -->
+    <string name="activity_login_titulo">Sistema de Registro de Dados Clínicos</string>
+    <string name="activity_login_cpfcns">CPF/CNS</string>
+    <string name="activity_login_senha">Senha</string>
+    <string name="activity_login_btlogin">Entrar</string>
+    <string name="activity_login_naocadastrado">Não cadastrado?</string>
+    <string name="activity_login_cadastrarcidadao">Cadastrar Cidadão</string>
+    <!-- ACTIVITY CADASTRO CIDADAO -->
+    <string name="activity_cadastrocidadao_tituloactivity">Cadastrar Cidadão</string>
+    <string name="activity_cadastrocidadao_dadosbasicos">Dados Básicos</string>
+    <string name="activity_cadastrocidadao_nome">Nome:</string>
+    <string name="activity_cadastrocidadao_cpf">CPF:</string>
+    <string name="activity_cadastrocidadao_naotenhocns">Não tenho CNS</string>
+    <string name="activity_cadastrocidadao_cns">CNS:</string>
+    <string name="activity_cadastrocidadao_datanascimento">Data de Nascimento:</string>
+    <string-array name="activity_cadastrocidadao_estados">
+        <item>AC</item>
+        <item>AL</item>
+        <item>AP</item>
+        <item>AM</item>
+        <item>BA</item>
+        <item>CE</item>
+        <item>DF</item>
+        <item>ES</item>
+        <item>GO</item>
+        <item>MA</item>
+        <item>MT</item>
+        <item>MS</item>
+        <item>MG</item>
+        <item>PA</item>
+        <item>PB</item>
+        <item>PR</item>
+        <item>PE</item>
+        <item>PI</item>
+        <item>RJ</item>
+        <item>RN</item>
+        <item>RS</item>
+        <item>RO</item>
+        <item>RR</item>
+        <item>SC</item>
+        <item>SP</item>
+        <item>SE</item>
+        <item>TO</item>
+    </string-array>
+    <string name="activity_cadastrocidadao_cidade">Cidade:</string>
+    <string name="activity_cadastrocidadao_estado">Estado:</string>
+    <string name="activity_cadastrocidadao_senha">Senha:</string>
+    <string name="activity_cadastrocidadao_informacaosenha">Senhas devem ter de 6 a 11 dígitos</string>
+    <string name="activity_cadastrocidadao_dadosdeseguranca">Dados de segurança</string>
+    <string name="activity_cadastrocidadao_cadastrar">Cadastrar</string>
+    <!-- ACTIVITY CADASTRO CLINICO-->
+    <string name="activity_cadastroclinico_dadosclinicos">Dados Clínicos</string>
+    <string name="activity_cadastroclinico_doencasmonitoradas">Doenças a serem monitoradas:</string>
+    <string name="activity_cadastroclinico_horariosdecoleta">Horários de coleta</string>
+    <string name="activity_cadastroclinico_diasdecoleta">Dias de coleta</string>
+    <string name="activity_cadastroclinico_altura">Altura (cm)</string>
+    <string name="activity_cadastroclinico_segunda">Seg</string>
+    <string name="activity_cadastroclinico_terca">Ter</string>
+    <string name="activity_cadastroclinico_quarta">Qua</string>
+    <string name="activity_cadastroclinico_quinta">Qui</string>
+    <string name="activity_cadastroclinico_sexta">Sex</string>
+    <string name="activity_cadastroclinico_sabado">Sab</string>
+    <string name="activity_cadastroclinico_domingo">Dom</string>
+    <string name="activity_cadastroclinico_cadastrar">Cadastrar</string>
+    <string name="activity_cadastroclinico_enviarnotificacao">Enviar notificação nos horários de coleta?</string>
+    <!-- -->
+
 </resources>
