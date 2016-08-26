@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import sdr.ufscar.dev.srdc.R;
 
-public class CadastroRegistro extends AppCompatActivity {
+public class CadastroRegistroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
