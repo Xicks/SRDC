@@ -25,7 +25,9 @@ public class DatabaseHelper {
             SQLiteDatabase db = ctx.openOrCreateDatabase(DBNAME,SQLiteDatabase.CREATE_IF_NECESSARY,null);
             db.setVersion(VERSION);
             db.execSQL("CREATE TABLE dados_clinicos(dados_clinicos_id_dados_clinicos INTEGER " +
-            "PRIMARY KEY AUTOINCREMENT);");
+                    "PRIMARY KEY AUTOINCREMENT, cns_profissional TEXT, cnes TEXT, " +
+                    "data_registro TEXT, altura INTEGER, i10_15 INTEGER, e10_e14 INTEGER, " +
+                    "e65_68 INTEGER, observacoes TEXT, enviar_notificacao INTEGER);");
             db.execSQL("CREATE TABLE usuario (usuario_id_usuario INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "username TEXT UNIQUE, senha TEXT);");
             db.execSQL("CREATE TABLE cidadao (cidadao_id_cidadao INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -34,6 +36,10 @@ public class DatabaseHelper {
                     "FOREIGN KEY(cidadao_id_usuario) REFERENCES usuario(usuario_id_usuario) " +
                     ", FOREIGN KEY(cidadao_id_dados_clinicos) REFERENCES dados_clinicos" +
                     "(dados_clinicos_id_dados_clinicos));");
+            db.execSQL("CREATE TABLE horarios_coleta(horarios_coleta_id_horarios_coleta INTEGER " +
+                    "PRIMARY KEY AUTOINCREMENT, horarios_coleta_id_dados_clinicos INTEGER, " +
+                    "dia_semana INTEGER, hora TEXT, FOREIGN KEY(horarios_coleta_id_dados_clinicos) " +
+                    "REFERENCES dados_clinicos(dados_clinicos_id_dados_clinicos));");
             db.close();
         }
         helper = new DatabaseHelper();

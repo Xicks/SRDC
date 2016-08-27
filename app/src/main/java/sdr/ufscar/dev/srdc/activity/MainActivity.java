@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        deleteDatabase("srdc.db");
+        //deleteDatabase("srdc.db");
         DatabaseHelper.initDatabase(this);
 
         Handler handler = new Handler();
