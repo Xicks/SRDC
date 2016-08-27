@@ -10,7 +10,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import sdr.ufscar.dev.srdc.R;
+import sdr.ufscar.dev.srdc.application.SRDCApplication;
+import sdr.ufscar.dev.srdc.facade.CidadaoFacade;
 import sdr.ufscar.dev.srdc.facade.UsuarioFacade;
+import sdr.ufscar.dev.srdc.model.Cidadao;
 import sdr.ufscar.dev.srdc.model.Usuario;
 
 public class LoginActivity extends AppCompatActivity {
@@ -37,12 +40,19 @@ public class LoginActivity extends AppCompatActivity {
         usuario.setUsername(mCpfCns.getText() + "");
         usuario.setSenha(mSenha.getText()+ "");
         if(Boolean.TRUE.equals(facade.login(usuario))){
-            Toast t = Toast.makeText(this.getBaseContext(),"Logado",
-                    Toast.LENGTH_SHORT);
-            mSenha.setText("");
-            t.show();
+            Cidadao cidadao = new CidadaoFacade().procurarCidadaoPorUsuario(usuario.getIdUsuario());
+            // Adiciona objeto cidadao na sessao
+            SRDCApplication app = (SRDCApplication) getApplication();
+            app.setCidadaoInstance(cidadao);
+
+            if(cidadao.getDadosClinicos() == null) {
+                Intent i = new Intent(getApplicationContext(),CadastroDadosClinicosActivity.class);
+                startActivity(i);
+            } else {
+                // Ir para inicio
+            }
         } else {
-            Toast t = Toast.makeText(this.getBaseContext(),"CPF/CNS ou senha inválido!",
+            Toast t = Toast.makeText(this.getBaseContext(),R.string.activity_login_cpfcnsinvalido,
                     Toast.LENGTH_SHORT);
             mSenha.setText("");
             t.show();

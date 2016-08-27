@@ -9,11 +9,15 @@ import java.util.Date;
 public class DadosClinicos {
 
     private Integer idDadosClinicos;
+    private String cnsProfissional;
+    private String cnes;
+    private Date dataRegistro;
     private Integer altura;
     private ArrayList<DoencaEnum> doencas;
     private ArrayList<Registro> registros;
     private ArrayList<Date> horariosColeta;
-    private Boolean receberNotificacao;
+    private String observacoes;
+    private Boolean enviarNotificacao;
 
     public Integer getIdDadosClinicos() {
         return idDadosClinicos;
@@ -23,12 +27,36 @@ public class DadosClinicos {
         this.idDadosClinicos = idDadosClinicos;
     }
 
-    public Boolean getReceberNotificacao() {
-        return receberNotificacao;
+    public String getCnsProfissional() {
+        return cnsProfissional;
     }
 
-    public void setReceberNotificacao(Boolean receberNotificacao) {
-        this.receberNotificacao = receberNotificacao;
+    public void setCnsProfissional(String cnsProfissional) {
+        this.cnsProfissional = cnsProfissional;
+    }
+
+    public String getCnes() {
+        return cnes;
+    }
+
+    public void setCnes(String cnes) {
+        this.cnes = cnes;
+    }
+
+    public Date getDataRegistro() {
+        return dataRegistro;
+    }
+
+    public void setDataRegistro(Date dataRegistro) {
+        this.dataRegistro = dataRegistro;
+    }
+
+    public Integer getAltura() {
+        return altura;
+    }
+
+    public void setAltura(Integer altura) {
+        this.altura = altura;
     }
 
     public ArrayList<DoencaEnum> getDoencas() {
@@ -55,11 +83,19 @@ public class DadosClinicos {
         this.horariosColeta = horariosColeta;
     }
 
-    public Integer getAltura() {
-        return altura;
+    public String getObservacoes() {
+        return observacoes;
     }
 
-    public void setAltura(Integer altura) {
-        this.altura = altura;
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
+    }
+
+    public Boolean getEnviarNotificacao() {
+        return enviarNotificacao;
+    }
+
+    public void setEnviarNotificacao(Boolean enviarNotificacao) {
+        this.enviarNotificacao = enviarNotificacao;
     }
 }

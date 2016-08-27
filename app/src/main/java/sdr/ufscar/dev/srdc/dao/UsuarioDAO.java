@@ -29,7 +29,11 @@ public class UsuarioDAO extends GenericDAO<Usuario>{
         try {
             long id = bd.insertOrThrow("usuario", null, cv);
             bd.close();
-            return id != -1;
+            if(id != -1) {
+                usuario.setIdUsuario((int) id);
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
         } catch(SQLiteConstraintException e) {
             throw new CadastroDuplicadoException(e);
         }

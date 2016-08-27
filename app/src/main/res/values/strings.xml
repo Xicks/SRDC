@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">SRDC</string>
     <string name="empty"></string>
+
+    <!-- TOAST -->
+    <string name="activity_login_cpfcnsinvalido">CPF/CNS ou senha inválido!</string>
+    <string name="activity_cadastrodadosclinicos_horariosexcedidos">Número de horários excedido"</string>
     <!-- ACTIVITY LOGIN -->
     <string name="activity_login_titulo">Sistema de Registro de Dados Clínicos</string>
     <string name="activity_login_cpfcns">CPF/CNS</string>
@@ -51,21 +55,74 @@
     <string name="activity_cadastrocidadao_informacaosenha">Senhas devem ter de 6 a 11 dígitos</string>
     <string name="activity_cadastrocidadao_dadosdeseguranca">Dados de segurança</string>
     <string name="activity_cadastrocidadao_cadastrar">Cadastrar</string>
-    <!-- ACTIVITY CADASTRO CLINICO-->
-    <string name="activity_cadastroclinico_dadosclinicos">Dados Clínicos</string>
-    <string name="activity_cadastroclinico_doencasmonitoradas">Doenças a serem monitoradas:</string>
-    <string name="activity_cadastroclinico_horariosdecoleta">Horários de coleta</string>
-    <string name="activity_cadastroclinico_diasdecoleta">Dias de coleta</string>
-    <string name="activity_cadastroclinico_altura">Altura (cm)</string>
-    <string name="activity_cadastroclinico_segunda">Seg</string>
-    <string name="activity_cadastroclinico_terca">Ter</string>
-    <string name="activity_cadastroclinico_quarta">Qua</string>
-    <string name="activity_cadastroclinico_quinta">Qui</string>
-    <string name="activity_cadastroclinico_sexta">Sex</string>
-    <string name="activity_cadastroclinico_sabado">Sab</string>
-    <string name="activity_cadastroclinico_domingo">Dom</string>
-    <string name="activity_cadastroclinico_cadastrar">Cadastrar</string>
-    <string name="activity_cadastroclinico_enviarnotificacao">Enviar notificação nos horários de coleta?</string>
-    <!-- -->
+
+    <!-- ACTIVITY CADASTRO DADOS CLINICOS-->
+    <string name="activity_cadastrodadosclinicos_tituloactivity">Cadastro de Dados Clínicos</string>
+    <string name="activity_cadastrodadosclinicos_dadosdoprofissional">Dados do Profissional de Saúde</string>
+    <string name="activity_cadastrodadosclinicos_cnsprofissional">CNS do Profissional de Saúde:</string>
+    <string name="activity_cadastrodadosclinicos_cnes">Cadastro Nacional de Estabelecimentos de Saúde (CNES):</string>
+    <string name="activity_cadastrodadosclinicos_dadosclinicos">Dados Clínicos do Paciente</string>
+    <string name="activity_cadastrodadosclinicos_doencasmonitoradas">Doenças a serem monitoradas:</string>
+    <string name="activity_cadastrodadosclinicos_i1015">I10-I15 DOENÇAS HIPERTENSIVAS</string>
+    <string name="activity_cadastrodadosclinicos_e1014">E10-E14 DIABETES MELLITUS</string>
+    <string name="activity_cadastrodadosclinicos_e6568">E65-E68 OBESIDADE HIPERALIMENTAÇÃO</string>
+    <string name="activity_cadastrodadosclinicos_dadosmonitoramento">Dados de Monitoramento</string>
+    <string name="activity_cadastrodadosclinicos_horariosdecoleta">Horários de coleta:</string>
+    <string name="activity_cadastrodadosclinicos_diasdecoleta">Dias de coleta:</string>
+    <string name="activity_cadastrodadosclinicos_altura">Altura (cm):</string>
+    <string-array name="activity_cadastrodadosclinicos_alturas">
+        <item>100</item>
+        <item>110</item>
+        <item>120</item>
+        <item>130</item>
+        <item>140</item>
+        <item>150</item>
+        <item>160</item>
+        <item>170</item>
+        <item>180</item>
+        <item>190</item>
+        <item>200</item>
+        <item>210</item>
+        <item>220</item>
+        <item>230</item>
+        <item>240</item>
+        <item>250</item>
+    </string-array>
+    <string-array name="activity_cadastrodadosclinicos_horarios">
+        <item>0:00</item>
+        <item>1:00</item>
+        <item>2:00</item>
+        <item>3:00</item>
+        <item>4:00</item>
+        <item>5:00</item>
+        <item>6:00</item>
+        <item>7:00</item>
+        <item>8:00</item>
+        <item>9:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
+        <item>21:00</item>
+        <item>22:00</item>
+        <item>23:00</item>
+    </string-array>
+    <string name="activity_cadastrodadosclinicos_segunda">Se</string>
+    <string name="activity_cadastrodadosclinicos_terca">Te</string>
+    <string name="activity_cadastrodadosclinicos_quarta">Qa</string>
+    <string name="activity_cadastrodadosclinicos_quinta">Qi</string>
+    <string name="activity_cadastrodadosclinicos_sexta">Sx</string>
+    <string name="activity_cadastrodadosclinicos_sabado">Sa</string>
+    <string name="activity_cadastrodadosclinicos_domingo">Do</string>
+    <string name="activity_cadastrodadosclinicos_cadastrar">Cadastrar</string>
+    <string name="activity_cadastrodadosclinicos_observacoes">Observações</string>
+    <string name="activity_cadastrodadosclinicos_enviarnotificacao">Enviar notificação nos horários de coleta?</string>
 
 </resources>

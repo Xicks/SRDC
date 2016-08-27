@@ -3,25 +3,37 @@
     package="sdr.ufscar.dev.srdc">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".application.SRDCApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LoginActivity"
-            android:label="@string/empty"/>
-        <activity android:name=".activity.CadastroCidadaoActivity"
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/empty" />
+        <activity
+            android:name=".activity.CadastroCidadaoActivity"
             android:label="@string/activity_cadastrocidadao_tituloactivity"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity android:name=".activity.RegistrosActivity" />
         <activity android:name=".activity.CadastroRegistroActivity" />
-        <activity android:name=".activity.MainActivity" android:noHistory="true"
+        <activity
+            android:name=".activity.MainActivity"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.CadastroDadosClinicosActivity"
+            android:label="@string/activity_cadastrodadosclinicos_tituloactivity">
+
         </activity>
     </application>
 

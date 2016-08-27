@@ -94,9 +94,11 @@ public class CidadaoDAO extends GenericDAO<Cidadao>{
 
             cidadao.setIdCidadao(c.getInt(0));
 
-            DadosClinicos dc = new DadosClinicos();
-            dc.setIdDadosClinicos(c.getInt(1));
-            cidadao.setDadosClinicos(dc);
+            if(!c.isNull(2)) {
+                DadosClinicos dc = new DadosClinicos();
+                dc.setIdDadosClinicos(c.getInt(2));
+                cidadao.setDadosClinicos(dc);
+            }
 
             cidadao.setNome(c.getString(3));
             cidadao.setCpfCns(c.getString(4));
@@ -127,9 +129,11 @@ public class CidadaoDAO extends GenericDAO<Cidadao>{
             Cidadao cidadao = new Cidadao();
             cidadao.setIdCidadao(c.getInt(0));
 
-            DadosClinicos dc = new DadosClinicos();
-            dc.setIdDadosClinicos(c.getInt(1));
-            cidadao.setDadosClinicos(dc);
+            if(!c.isNull(2)) {
+                DadosClinicos dc = new DadosClinicos();
+                dc.setIdDadosClinicos(c.getInt(2));
+                cidadao.setDadosClinicos(dc);
+            }
 
             cidadao.setNome(c.getString(3));
             cidadao.setCpfCns(c.getString(4));
