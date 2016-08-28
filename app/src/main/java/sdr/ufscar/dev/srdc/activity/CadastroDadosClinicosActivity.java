@@ -21,6 +21,7 @@ import sdr.ufscar.dev.srdc.R;
 import sdr.ufscar.dev.srdc.application.SRDCApplication;
 import sdr.ufscar.dev.srdc.exception.CadastroDuplicadoException;
 import sdr.ufscar.dev.srdc.facade.CidadaoFacade;
+import sdr.ufscar.dev.srdc.facade.DadosClinicosFacade;
 import sdr.ufscar.dev.srdc.model.Cidadao;
 import sdr.ufscar.dev.srdc.model.DadosClinicos;
 import sdr.ufscar.dev.srdc.model.DoencaEnum;
@@ -116,7 +117,25 @@ public class CadastroDadosClinicosActivity extends AppCompatActivity {
             dadosClinicos.setObservacoes(mETObservacoes.getText().toString());
             dadosClinicos.setEnviarNotificacao(mCHKEnviarNotificao.isChecked());
 
-
+            try {
+                Boolean sucesso = new DadosClinicosFacade().cadastrarDadosClinicos(dadosClinicos);
+                if (Boolean.TRUE.equals(sucesso)) {
+                    new AlertDialog.Builder(this)
+                            .setTitle("Cadastro Realizado")
+                            .setMessage("Seus dados clínicos foram registrados com sucesso!")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    finish();
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_info)
+                            .show();
+                } else {
+                    gerarAlertaDeErro("Houve um erro ao realizar o cadastro. Tente novamente.");
+                }
+            }catch(CadastroDuplicadoException e) {
+                gerarAlertaDeErro("Dados clínicos já cadastrados");
+            }
 
         }
     }

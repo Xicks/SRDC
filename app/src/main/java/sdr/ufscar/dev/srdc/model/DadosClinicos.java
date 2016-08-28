@@ -12,7 +12,7 @@ public class DadosClinicos {
     private String cnsProfissional;
     private String cnes;
     private Date dataRegistro;
-    private Integer altura;
+    private float altura;
     private ArrayList<DoencaEnum> doencas;
     private ArrayList<Registro> registros;
     private ArrayList<Date> horariosColeta;
@@ -51,11 +51,11 @@ public class DadosClinicos {
         this.dataRegistro = dataRegistro;
     }
 
-    public Integer getAltura() {
+    public float getAltura() {
         return altura;
     }
 
-    public void setAltura(Integer altura) {
+    public void setAltura(float altura) {
         this.altura = altura;
     }
 

@@ -26,7 +26,7 @@ public class DatabaseHelper {
             db.setVersion(VERSION);
             db.execSQL("CREATE TABLE dados_clinicos(dados_clinicos_id_dados_clinicos INTEGER " +
                     "PRIMARY KEY AUTOINCREMENT, cns_profissional TEXT, cnes TEXT, " +
-                    "data_registro TEXT, altura INTEGER, i10_15 INTEGER, e10_e14 INTEGER, " +
+                    "data_registro TEXT, altura REAL, i10_15 INTEGER, e10_e14 INTEGER, " +
                     "e65_68 INTEGER, observacoes TEXT, enviar_notificacao INTEGER);");
             db.execSQL("CREATE TABLE usuario (usuario_id_usuario INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "username TEXT UNIQUE, senha TEXT);");
