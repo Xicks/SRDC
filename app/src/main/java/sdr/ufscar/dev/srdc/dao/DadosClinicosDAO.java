@@ -31,36 +31,22 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
         cv.put("altura",dadosClinicos.getAltura());
 
         ArrayList<DoencaEnum> doencas = dadosClinicos.getDoencas();
-        if(doencas.contains(DoencaEnum.I10_15_DOENÇAS_HIPERTENSIVAS))
-            cv.put("i10_15",1);
-        else
-            cv.put("i10_15",0);
-
-        if(doencas.contains(DoencaEnum.E10_E14_DIABETES_MELLITUS))
-            cv.put("e10_e14",1);
-        else
-            cv.put("e10_e14",0);
-
-        if(doencas.contains(DoencaEnum.E65_E68_OBESIDADE_HIPERALIMENTAÇÃO))
-            cv.put("e65_68",1);
-        else
-            cv.put("e65_68",0);
-
-        //TODO pensar sobre como serao feitos os registros.
-
-        //TODO pensar sobre como serao feitos esses horarios.
+        for(DoencaEnum doenca: doencas) {
+            cv.put(doenca.getDoenca(),1);
+        }
 
         cv.put("observacoes",dadosClinicos.getObservacoes());
 
-        if(dadosClinicos.getEnviarNotificacao())
+        if(Boolean.TRUE.equals(dadosClinicos.getEnviarNotificacao()))
             cv.put("enviar_notificacao",1);
-        else
-            cv.put("enviar_notificacao",0);
 
         // Retorno id do novo registro ou -1 caso haja erro
         long id = bd.insert("dados_clinicos", null, cv);
-        bd.close();
-        return id != -1;
+        if(id != -1) {
+            dadosClinicos.setIdDadosClinicos((int) id);
+            return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
     }
 
 
@@ -73,7 +59,8 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
     public Boolean delete(Integer idDadosClinicos) {
         SQLiteDatabase bd = DatabaseHelper.getInstance().openReadWrite();
         // Retorna quantos registros foram alteradas
-        int i = bd.delete("dados_clinicos","dados_clinicos_id_dados_clinicos = ?",new String[] {idDadosClinicos.toString()});
+        int i = bd.delete("dados_clinicos","dados_clinicos_id_dados_clinicos = ?",
+                new String[] {idDadosClinicos.toString()});
         bd.close();
         return i != 0;
     }
@@ -94,28 +81,18 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
         cv.put("altura",dadosClinicos.getAltura());
 
         ArrayList<DoencaEnum> doencas = dadosClinicos.getDoencas();
-        if(doencas.contains(DoencaEnum.I10_15_DOENÇAS_HIPERTENSIVAS))
-            cv.put("i10_15",1);
-        else
-            cv.put("i10_15",0);
 
-        if(doencas.contains(DoencaEnum.E10_E14_DIABETES_MELLITUS))
-            cv.put("e10_e14",1);
-        else
-            cv.put("e10_e14",0);
-
-        if(doencas.contains(DoencaEnum.E65_E68_OBESIDADE_HIPERALIMENTAÇÃO))
-            cv.put("e65_68",1);
-        else
-            cv.put("e65_68",0);
-
-        //TODO pensar sobre como serao feitos os registros.
-
-        //TODO pensar sobre como serao feitos esses horarios.
+        for(DoencaEnum doenca: DoencaEnum.values()) {
+            if(doencas.contains(doenca)) {
+                cv.put(doenca.getDoenca(), 1);
+            } else {
+                cv.put(doenca.getDoenca(),0);
+            }
+        }
 
         cv.put("observacoes",dadosClinicos.getObservacoes());
 
-        if(dadosClinicos.getEnviarNotificacao())
+        if(Boolean.TRUE.equals(dadosClinicos.getEnviarNotificacao()))
             cv.put("enviar_notificacao",1);
         else
             cv.put("enviar_notificacao",0);
@@ -144,7 +121,7 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
             dadosClinicos.setCnsProfissional(c.getString(1));
             dadosClinicos.setCnes(c.getString(2));
             dadosClinicos.setDataRegistro(AppUtils.converterData(c.getString(3)));
-            dadosClinicos.setAltura(c.getFloat(4));
+            dadosClinicos.setAltura(c.getInt(4));
 
             ArrayList<DoencaEnum> doencas = new ArrayList<>();
             if(c.getInt(5) == 1)
@@ -158,10 +135,6 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
 
             dadosClinicos.setObservacoes(c.getString(8));
             dadosClinicos.setEnviarNotificacao(c.getInt(9) == 1);
-
-            //TODO pensar sobre como serao feitos os registros.
-
-            //TODO pensar sobre como serao feitos esses horarios.
 
             c.close();
             bd.close();
