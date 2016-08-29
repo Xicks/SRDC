@@ -139,37 +139,44 @@
                     android:id="@+id/activity_cadastrodadosclinicos_chk_segunda"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_segunda"/>
+                    android:text="@string/activity_cadastrodadosclinicos_segunda"
+                    android:onClick="mudarDia"/>
                 <CheckBox
                     android:id="@+id/activity_cadastrodadosclinicos_chk_terca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_terca"/>
+                    android:text="@string/activity_cadastrodadosclinicos_terca"
+                    android:onClick="mudarDia"/>
                 <CheckBox
                     android:id="@+id/activity_cadastrodadosclinicos_chk_quarta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_quarta"/>
+                    android:text="@string/activity_cadastrodadosclinicos_quarta"
+                    android:onClick="mudarDia"/>
                 <CheckBox
                     android:id="@+id/activity_cadastrodadosclinicos_chk_quinta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_quinta"/>
+                    android:text="@string/activity_cadastrodadosclinicos_quinta"
+                    android:onClick="mudarDia"/>
                 <CheckBox
                     android:id="@+id/activity_cadastrodadosclinicos_chk_sexta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_sexta"/>
+                    android:text="@string/activity_cadastrodadosclinicos_sexta"
+                    android:onClick="mudarDia"/>
                 <CheckBox
                     android:id="@+id/activity_cadastrodadosclinicos_chk_sabado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_sabado"/>
+                    android:text="@string/activity_cadastrodadosclinicos_sabado"
+                    android:onClick="mudarDia"/>
                 <CheckBox
                     android:id="@+id/activity_cadastrodadosclinicos_chk_domingo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_domingo"/>
+                    android:text="@string/activity_cadastrodadosclinicos_domingo"
+                    android:onClick="mudarDia"/>
             </LinearLayout>
 
             <TextView
@@ -178,22 +185,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/activity_cadastrodadosclinicos_horariosdecoleta" />
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center">
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Adicionar horário"
+                    android:text="@string/activity_cadastrodadosclinicos_adicionar_horario"
                     android:onClick="adicionarHorario"/>
-                <LinearLayout
-                    android:id="@+id/activity_cadastrodadosclinicas_ll_horarios"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
-                </LinearLayout>
+                <Button
+                    android:id="@+id/activity_cadastrodadosclinicos_bt_removerhorario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="@string/activity_cadastrodadosclinicos_remover_horario"
+                    android:onClick="removerHorario"/>
 
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/activity_cadastrodadosclinicas_ll_horarios"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
             </LinearLayout>
 
             <CheckBox

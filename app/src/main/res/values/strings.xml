@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">SRDC</string>
     <string name="empty"></string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+
 
     <!-- TOAST -->
     <string name="activity_login_cpfcnsinvalido">CPF/CNS ou senha inválido!</string>
@@ -114,6 +117,8 @@
         <item>22:00</item>
         <item>23:00</item>
     </string-array>
+    <string name="activity_cadastrodadosclinicos_adicionar_horario">Adicionar Horário</string>
+    <string name="activity_cadastrodadosclinicos_remover_horario">Remover Horário</string>
     <string name="activity_cadastrodadosclinicos_segunda">Se</string>
     <string name="activity_cadastrodadosclinicos_terca">Te</string>
     <string name="activity_cadastrodadosclinicos_quarta">Qa</string>

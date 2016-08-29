@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         if(Boolean.TRUE.equals(facade.login(usuario))){
             Cidadao cidadao = new CidadaoFacade().procurarCidadaoPorUsuario(usuario.getIdUsuario());
             // Adiciona objeto cidadao na sessao
+            cidadao.setUsuario(usuario);
             SRDCApplication app = (SRDCApplication) getApplication();
             app.setCidadaoInstance(cidadao);
 
