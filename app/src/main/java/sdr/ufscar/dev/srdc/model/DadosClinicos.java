@@ -2,6 +2,7 @@ package sdr.ufscar.dev.srdc.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.StringTokenizer;
 
 /**
  * Created by Schick on 8/26/16.
@@ -15,7 +16,8 @@ public class DadosClinicos {
     private Integer altura;
     private ArrayList<DoencaEnum> doencas;
     private ArrayList<Registro> registros;
-    private ArrayList<Date> horariosColeta;
+    private String diasColeta;
+    private ArrayList<Integer> horasColeta;
     private String observacoes;
     private Boolean enviarNotificacao;
 
@@ -75,12 +77,38 @@ public class DadosClinicos {
         this.registros = registros;
     }
 
-    public ArrayList<Date> getHorariosColeta() {
-        return horariosColeta;
+    public ArrayList<DiasEnum> getDiasColetaEnum() {
+        StringTokenizer tokenizer = new StringTokenizer(diasColeta);
+        ArrayList<DiasEnum> dias = new ArrayList<>(7);
+        while(tokenizer.hasMoreTokens()){
+            dias.add(DiasEnum.valueOf(tokenizer.nextToken()));
+        }
+        return dias;
     }
 
-    public void setHorariosColeta(ArrayList<Date> horariosColeta) {
-        this.horariosColeta = horariosColeta;
+    public String getDiasColeta() {
+        return diasColeta;
+    }
+
+    public void setDiasColeta(ArrayList<DiasEnum> diasColeta) {
+        StringBuilder sb = new StringBuilder();
+        for(DiasEnum dia: diasColeta) {
+            sb.append(dia.getDia());
+            sb.append(" ");
+        }
+        this.diasColeta = new String(sb);
+    }
+
+    public void setDiasColeta(String diasColeta) {
+        this.diasColeta = diasColeta;
+    }
+
+    public ArrayList<Integer> getHorasColeta() {
+        return horasColeta;
+    }
+
+    public void setHorasColeta(ArrayList<Integer> horasColeta) {
+        this.horasColeta = horasColeta;
     }
 
     public String getObservacoes() {

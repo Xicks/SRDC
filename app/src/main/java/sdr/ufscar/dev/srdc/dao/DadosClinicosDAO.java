@@ -5,8 +5,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import sdr.ufscar.dev.srdc.model.DadosClinicos;
+import sdr.ufscar.dev.srdc.model.DiasEnum;
 import sdr.ufscar.dev.srdc.model.DoencaEnum;
 import sdr.ufscar.dev.srdc.util.AppUtils;
 
@@ -22,13 +24,14 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
      */
     @Override
     public Boolean insert(DadosClinicos dadosClinicos) {
-        SQLiteDatabase bd = DatabaseHelper.getInstance().openReadWrite();
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadWrite();
         ContentValues cv = new ContentValues();
         cv.put("cns_profissional",dadosClinicos.getCnsProfissional());
         cv.put("cnes",dadosClinicos.getCnes());
         String data = AppUtils.converterData(dadosClinicos.getDataRegistro());
         cv.put("data_registro",data);
         cv.put("altura",dadosClinicos.getAltura());
+        cv.put("dias_coleta",dadosClinicos.getDiasColeta());
 
         ArrayList<DoencaEnum> doencas = dadosClinicos.getDoencas();
         for(DoencaEnum doenca: doencas) {
@@ -41,12 +44,21 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
             cv.put("enviar_notificacao",1);
 
         // Retorno id do novo registro ou -1 caso haja erro
-        long id = bd.insert("dados_clinicos", null, cv);
+        long id = db.insert("dados_clinicos", null, cv);
+        Boolean retorno = Boolean.FALSE;
         if(id != -1) {
             dadosClinicos.setIdDadosClinicos((int) id);
-            return Boolean.TRUE;
+            // Adiciona horas de coleta
+            for(Integer horaColeta: dadosClinicos.getHorasColeta()) {
+                cv = new ContentValues();
+                cv.put("hora_coleta_id_dados_clinicos",(int) id);
+                cv.put("hora",horaColeta);
+                db.insert("hora_coleta",null,cv);
+            }
+            retorno = Boolean.TRUE;
         }
-        return Boolean.FALSE;
+        db.close();
+        return retorno;
     }
 
 
@@ -57,12 +69,19 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
      */
     @Override
     public Boolean delete(Integer idDadosClinicos) {
-        SQLiteDatabase bd = DatabaseHelper.getInstance().openReadWrite();
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadWrite();
         // Retorna quantos registros foram alteradas
-        int i = bd.delete("dados_clinicos","dados_clinicos_id_dados_clinicos = ?",
+        int i = db.delete("dados_clinicos","dados_clinicos_id_dados_clinicos = ?",
                 new String[] {idDadosClinicos.toString()});
-        bd.close();
-        return i != 0;
+        Boolean retorno = Boolean.FALSE;
+        if(i != 0) {
+            // Apaga as horas de coleta
+            db.delete("hora_coleta","coleta_hora_id_dados_clinicos = ?",
+                    new String[] {idDadosClinicos.toString()});
+            retorno = Boolean.TRUE;
+        }
+        db.close();
+        return retorno;
     }
 
     /**
@@ -72,13 +91,14 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
      */
     @Override
     public Boolean update(DadosClinicos dadosClinicos) {
-        SQLiteDatabase bd = DatabaseHelper.getInstance().openReadWrite();
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadWrite();
         ContentValues cv = new ContentValues();
         cv.put("cns_profissional",dadosClinicos.getCnsProfissional());
         cv.put("cnes",dadosClinicos.getCnes());
         String data = AppUtils.converterData(dadosClinicos.getDataRegistro());
         cv.put("data_registro",data);
         cv.put("altura",dadosClinicos.getAltura());
+        cv.put("dias_coleta",dadosClinicos.getDiasColeta());
 
         ArrayList<DoencaEnum> doencas = dadosClinicos.getDoencas();
 
@@ -98,9 +118,20 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
             cv.put("enviar_notificacao",0);
 
         // Retorna quantos registros foram alteradas
-        int i = bd.update("dados_clinicos",cv,"dados_clinicos_id_dados_clinicos = ?",
+        int i = db.update("dados_clinicos",cv,"dados_clinicos_id_dados_clinicos = ?",
                 new String[] {dadosClinicos.getIdDadosClinicos().toString()});
-        bd.close();
+
+        // Apaga as horas de coleta
+        db.delete("hora_coleta","coleta_hora_id_dados_clinicos = ?",
+                new String[] {dadosClinicos.getIdDadosClinicos().toString()});
+        // Adiciona as novas horas de coleta
+        for(Integer horaColeta: dadosClinicos.getHorasColeta()) {
+            cv = new ContentValues();
+            cv.put("hora_coleta_id_dados_clinicos", dadosClinicos.getIdDadosClinicos());
+            cv.put("hora",horaColeta);
+            db.insert("hora_coleta",null,cv);
+        }
+        db.close();
         return i != 0;
     }
 
@@ -111,8 +142,8 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
      */
     @Override
     public DadosClinicos select(Integer IdDadosClinicos) {
-        SQLiteDatabase bd = DatabaseHelper.getInstance().openReadOnly();
-        Cursor c = bd.rawQuery("SELECT * FROM dados_clinicos WHERE dados_clinicos_id_dados_clinicos = ?",
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+        Cursor c = db.rawQuery("SELECT * FROM dados_clinicos WHERE dados_clinicos_id_dados_clinicos = ?",
                 new String[]{IdDadosClinicos.toString()});
         if (c != null) {
             c.moveToFirst();
@@ -134,13 +165,25 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
             dadosClinicos.setDoencas(doencas);
 
             dadosClinicos.setObservacoes(c.getString(8));
-            dadosClinicos.setEnviarNotificacao(c.getInt(9) == 1);
+            dadosClinicos.setDiasColeta(c.getString(9));
+            dadosClinicos.setEnviarNotificacao(c.getInt(10) == 1);
 
             c.close();
-            bd.close();
+
+            // Recupera horarios de coleta
+            ArrayList<Integer> horasColeta = new ArrayList<>(8);
+            c = db.rawQuery("SELECT * FROM hora_coleta WHERE hora_coleta_id_dados_clinicos = ?",
+                    new String[]{IdDadosClinicos.toString()});
+            if(c != null){
+                while(c.moveToNext()){
+                    horasColeta.add(Integer.parseInt(c.getString(3)));
+                }
+            }
+            dadosClinicos.setHorasColeta(horasColeta);
+            db.close();
             return dadosClinicos;
         } else {
-            bd.close();
+            db.close();
             return null;
         }
     }

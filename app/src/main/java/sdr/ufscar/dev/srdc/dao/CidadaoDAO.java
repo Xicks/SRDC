@@ -61,7 +61,7 @@ public class CidadaoDAO extends GenericDAO<Cidadao>{
      */
     @Override
     public Boolean update(Cidadao cidadao) {
-        SQLiteDatabase bd = DatabaseHelper.getInstance().openReadWrite();
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadWrite();
         ContentValues cv = new ContentValues();
         cv.put("nome",cidadao.getNome());
         cv.put("cpf_cns",cidadao.getCpfCns());
@@ -72,9 +72,9 @@ public class CidadaoDAO extends GenericDAO<Cidadao>{
         cv.put("cidadao_id_usuario",cidadao.getUsuario().getIdUsuario());
         cv.put("cidadao_id_dados_clinicos",cidadao.getDadosClinicos().getIdDadosClinicos());
         // Retorna quantos registros foram alteradas
-        int i = bd.update("cidadao",cv,"cidadao_id_cidadao = ?",
+        int i = db.update("cidadao",cv,"cidadao_id_cidadao = ?",
                 new String[] {cidadao.getIdCidadao().toString()});
-        bd.close();
+        db.close();
         return i != 0;
     }
 
@@ -85,8 +85,8 @@ public class CidadaoDAO extends GenericDAO<Cidadao>{
      */
     @Override
     public Cidadao select(Integer idCidadao) {
-        SQLiteDatabase bd = DatabaseHelper.getInstance().openReadOnly();
-        Cursor c = bd.rawQuery("SELECT * FROM cidadao WHERE cidadao_id_cidadao = ?",
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+        Cursor c = db.rawQuery("SELECT * FROM cidadao WHERE cidadao_id_cidadao = ?",
                 new String[]{idCidadao.toString()});
         if (c != null) {
             c.moveToFirst();
@@ -106,10 +106,10 @@ public class CidadaoDAO extends GenericDAO<Cidadao>{
             cidadao.setCidade(c.getString(6));
             cidadao.setEstado(c.getString(7));
             c.close();
-            bd.close();
+            db.close();
             return cidadao;
         } else {
-            bd.close();
+            db.close();
             return null;
         }
     }
@@ -120,8 +120,8 @@ public class CidadaoDAO extends GenericDAO<Cidadao>{
      * @return
      */
     public Cidadao selectPorUsuario(Integer idUsuario) {
-        SQLiteDatabase bd = DatabaseHelper.getInstance().openReadOnly();
-        Cursor c = bd.rawQuery("SELECT * FROM cidadao WHERE cidadao_id_usuario = ?",
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+        Cursor c = db.rawQuery("SELECT * FROM cidadao WHERE cidadao_id_usuario = ?",
                 new String[]{idUsuario.toString()});
         if (c != null) {
             c.moveToFirst();
@@ -141,10 +141,10 @@ public class CidadaoDAO extends GenericDAO<Cidadao>{
             cidadao.setCidade(c.getString(6));
             cidadao.setEstado(c.getString(7));
             c.close();
-            bd.close();
+            db.close();
             return cidadao;
         } else {
-            bd.close();
+            db.close();
             return null;
         }
     }

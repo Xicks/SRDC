@@ -53,7 +53,8 @@ public class CidadaoFacade {
      */
     public Boolean removerCidadao(Cidadao cidadao) {
         new UsuarioFacade().removerUsuario(cidadao.getUsuario().getIdUsuario());
-        new DadosClinicosFacade().removerDadosClinicos(cidadao.getDadosClinicos().getIdDadosClinicos());
+        new DadosClinicosFacade().removerDadosClinicos(cidadao.getDadosClinicos()
+                .getIdDadosClinicos(),cidadao);
         cidadaoDAO.delete(cidadao.getIdCidadao());
         return Boolean.TRUE;
     }
