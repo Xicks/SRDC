@@ -1,7 +1,9 @@
 package sdr.ufscar.dev.srdc.facade;
 
+import sdr.ufscar.dev.srdc.dao.CidadaoDAO;
 import sdr.ufscar.dev.srdc.dao.DadosClinicosDAO;
 import sdr.ufscar.dev.srdc.exception.CadastroDuplicadoException;
+import sdr.ufscar.dev.srdc.model.Cidadao;
 import sdr.ufscar.dev.srdc.model.DadosClinicos;
 
 /**
@@ -16,19 +18,28 @@ public class DadosClinicosFacade {
     }
 
     /**
-     * Faz o cadastro do dado clinico.
+     * Faz o cadastro do dado clinico e relaciona ao cidadao
      * @param dadosClinicos
-     * @throws CadastroDuplicadoException
      * @return se a operação foi realizada com sucesso
      */
-    public Boolean cadastrarDadosClinicos(DadosClinicos dadosClinicos) {
-        try {
-            //TODO Eventuais regras
-            return  dadosClinicosDAO.insert(dadosClinicos);
-
-        }catch(CadastroDuplicadoException e) {
-            return Boolean.FALSE;
+    public Boolean cadastrarDadosClinicos(DadosClinicos dadosClinicos, Cidadao cidadao) {
+        Boolean sucesso = dadosClinicosDAO.insert(dadosClinicos);
+        if (Boolean.TRUE.equals(sucesso)){
+            CidadaoDAO cidadaoDAO = new CidadaoDAO();
+            cidadaoDAO.select(cidadao.getIdCidadao());
+            cidadao.setDadosClinicos(dadosClinicos);
+            return cidadaoDAO.update(cidadao);
         }
+        return Boolean.FALSE;
+    }
+
+    /**
+     * Altera o dado clinico
+     * @param dadosClinicos
+     * @return se a operação foi realizada com sucesso
+     */
+    public Boolean alterarDadosClinicos(DadosClinicos dadosClinicos) {
+        return dadosClinicosDAO.update(dadosClinicos);
     }
 
     /**
@@ -36,8 +47,14 @@ public class DadosClinicosFacade {
      * @param idDadosClinicos
      * @return se a operação foi realizada com sucesso
      */
-    public Boolean removerDadosClinicos(Integer idDadosClinicos) {
-        //TODO Eventuais regras
-        return  dadosClinicosDAO.delete(idDadosClinicos);
+    public Boolean removerDadosClinicos(Integer idDadosClinicos,Cidadao cidadao) {
+        Boolean sucesso = dadosClinicosDAO.delete(idDadosClinicos);
+        if (Boolean.TRUE.equals(sucesso)){
+            CidadaoDAO cidadaoDAO = new CidadaoDAO();
+            cidadaoDAO.select(cidadao.getIdCidadao());
+            cidadao.setDadosClinicos(null);
+            return cidadaoDAO.update(cidadao);
+        }
+        return Boolean.FALSE;
     }
 }
