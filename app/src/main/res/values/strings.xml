@@ -124,5 +124,6 @@
     <string name="activity_cadastrodadosclinicos_cadastrar">Cadastrar</string>
     <string name="activity_cadastrodadosclinicos_observacoes">Observações</string>
     <string name="activity_cadastrodadosclinicos_enviarnotificacao">Enviar notificação nos horários de coleta?</string>
+    <string name="title_activity_help_tela_inicial">HelpTelaInicial</string>
 
 </resources>
