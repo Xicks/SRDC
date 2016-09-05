@@ -31,34 +31,50 @@ public class RegistroColetaFacade {
 
     public List<RegistroColeta> pegarGlicemiaMaximaNoIntervalo(Integer idDadosClinicos,
                                                                Date inicio, Date fim) {
-        return registroColetaDAO.selectMaximoDadoRegistroColetaNoIntervalo(idDadosClinicos,
-                AppUtils.converterData(inicio),AppUtils.converterData(fim),"glicemia");
+        return registroColetaDAO.selectGlicemiaMaximaNoIntervalo(idDadosClinicos,
+                AppUtils.converterData(inicio),AppUtils.converterData(fim));
     }
 
     public List<RegistroColeta> pegarGlicemiaMinimaNoIntervalo(Integer idDadosClinicos,
                                                                Date inicio, Date fim) {
-        return registroColetaDAO.selectMinimoDadoRegistroColetaNoIntervalo(idDadosClinicos,
-                AppUtils.converterData(inicio),AppUtils.converterData(fim),"glicemia");
+        return registroColetaDAO.selectGlicemiaMinimaNoIntervalo(idDadosClinicos,
+                AppUtils.converterData(inicio),AppUtils.converterData(fim));
     }
 
     public List<RegistroColeta> pegarPressaoMaximaNoIntervalo(Integer idDadosClinicos,
                                                                Date inicio, Date fim) {
-        throw new UnsupportedOperationException();
+        return registroColetaDAO.selectPressaoSistolicaMaximaNoIntervalo(idDadosClinicos,
+                AppUtils.converterData(inicio),AppUtils.converterData(fim));
     }
 
     public List<RegistroColeta> pegarPressaoMinimaNoIntervalo(Integer idDadosClinicos,
                                                                Date inicio, Date fim) {
-        throw new UnsupportedOperationException();
+        return registroColetaDAO.selectPressaoDiastolicaMinimaNoIntervalo(idDadosClinicos,
+                AppUtils.converterData(inicio),AppUtils.converterData(fim));
     }
 
     public List<RegistroColeta> pegarPesoMaximoNoIntervalo(Integer idDadosClinicos,
                                                                Date inicio, Date fim) {
-        throw new UnsupportedOperationException();
+        return registroColetaDAO.selectPesoMaximoNoIntervalo(idDadosClinicos,
+                AppUtils.converterData(inicio),AppUtils.converterData(fim));
     }
 
     public List<RegistroColeta> pegarPesoMinimoNoIntervalo(Integer idDadosClinicos,
                                                                Date inicio, Date fim) {
-        throw new UnsupportedOperationException();
+        return registroColetaDAO.selectPesoMinimoNoIntervalo(idDadosClinicos,
+                AppUtils.converterData(inicio),AppUtils.converterData(fim));
+    }
+
+    public List<RegistroColeta> pegarGastoCaloricoMaximoNoIntervalo(Integer idDadosClinicos,
+                                                           Date inicio, Date fim) {
+        return registroColetaDAO.selectGastoCaloricoMaximoNoIntervalo(idDadosClinicos,
+                AppUtils.converterData(inicio),AppUtils.converterData(fim));
+    }
+
+    public List<RegistroColeta> pegarGastoCaloricoMinimoNoIntervalo(Integer idDadosClinicos,
+                                                           Date inicio, Date fim) {
+        return registroColetaDAO.selectGastoCaloricoMinimoNoIntervalo(idDadosClinicos,
+                AppUtils.converterData(inicio),AppUtils.converterData(fim));
     }
 
     public List<RegistroColeta> pegarRegistroColetaNoIntervalo(Integer idDadosClinicos,

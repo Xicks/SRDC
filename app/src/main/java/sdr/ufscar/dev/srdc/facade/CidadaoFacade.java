@@ -1,8 +1,10 @@
 package sdr.ufscar.dev.srdc.facade;
 
 import sdr.ufscar.dev.srdc.dao.CidadaoDAO;
+import sdr.ufscar.dev.srdc.dao.DadosClinicosDAO;
 import sdr.ufscar.dev.srdc.exception.CadastroDuplicadoException;
 import sdr.ufscar.dev.srdc.model.Cidadao;
+import sdr.ufscar.dev.srdc.model.DadosClinicos;
 
 /**
  * Created by Schick on 8/23/16.
@@ -65,6 +67,12 @@ public class CidadaoFacade {
      * @return cidadao
      */
     public Cidadao procurarCidadaoPorUsuario(Integer idUsuario) {
-        return cidadaoDAO.selectPorUsuario(idUsuario);
+        Cidadao cidadao = cidadaoDAO.selectPorUsuario(idUsuario);
+        if(cidadao.getDadosClinicos() != null) {
+            DadosClinicos dadosClinicos = new DadosClinicosDAO().select(
+                    cidadao.getDadosClinicos().getIdDadosClinicos());
+            cidadao.setDadosClinicos(dadosClinicos);
+        }
+        return cidadao;
     }
 }

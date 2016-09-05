@@ -1,8 +1,6 @@
 package sdr.ufscar.dev.srdc.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mCpfCns;
     private EditText mSenha;
     private UsuarioFacade facade;
+    private SRDCApplication app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +42,18 @@ public class LoginActivity extends AppCompatActivity {
             Cidadao cidadao = new CidadaoFacade().procurarCidadaoPorUsuario(usuario.getIdUsuario());
             // Adiciona objeto cidadao na sessao
             cidadao.setUsuario(usuario);
-            SRDCApplication app = (SRDCApplication) getApplication();
+            app = (SRDCApplication) getApplication();
             app.setCidadaoInstance(cidadao);
 
             if(cidadao.getDadosClinicos() == null) {
                 Intent i = new Intent(getApplicationContext(),CadastroDadosClinicosActivity.class);
                 startActivity(i);
             } else {
-                // Ir para inicio
+                Intent i = new Intent(getApplicationContext(),InicioActivity.class);
+                startActivity(i);
             }
         } else {
-            Toast t = Toast.makeText(this.getBaseContext(),R.string.activity_login_cpfcnsinvalido,
+            Toast t = Toast.makeText(this.getBaseContext(),R.string.activity_login_cpf_cns_invalido,
                     Toast.LENGTH_SHORT);
             mSenha.setText("");
             t.show();
@@ -64,5 +64,12 @@ public class LoginActivity extends AppCompatActivity {
     public void cadastrarCidadao(View v){
         Intent i = new Intent(getBaseContext(),CadastroCidadaoActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        app = (SRDCApplication) getApplication();
+        app.setCidadaoInstance(null);
     }
 }

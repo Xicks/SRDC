@@ -25,11 +25,20 @@ public class RegistroColetaDAO implements GenericDAO<RegistroColeta>{
         SQLiteDatabase db = DatabaseHelper.getInstance().openReadWrite();
         ContentValues cv = new ContentValues();
         cv.put("registro_coleta_id_dados_clinicos",registroColeta.getIdDadosClinicos());
-        cv.put("glicemia",registroColeta.getGlicemia());
-        cv.put("pressao_sistolica",registroColeta.getPressaoSistolica());
-        cv.put("pressao_diastolica",registroColeta.getPressaoDiastolica());
-        cv.put("gasto_calorico",registroColeta.getGastoCalorico());
-        cv.put("peso",registroColeta.getPeso());
+        if(registroColeta.getGlicemia() != null) {
+            cv.put("glicemia", registroColeta.getGlicemia());
+        }
+        if(registroColeta.getPressaoSistolica() != null &&
+                registroColeta.getPressaoDiastolica() != null) {
+            cv.put("pressao_sistolica", registroColeta.getPressaoSistolica());
+            cv.put("pressao_diastolica", registroColeta.getPressaoDiastolica());
+        }
+        if(registroColeta.getGastoCalorico() != null) {
+            cv.put("gasto_calorico", registroColeta.getGastoCalorico());
+        }
+        if(registroColeta.getGastoCalorico() != null) {
+            cv.put("peso", registroColeta.getPeso());
+        }
         cv.put("data_registro", AppUtils.converterData(registroColeta.getDataColeta()));
         long id = db.insert("registro_coleta",null,cv);
         db.close();
@@ -89,13 +98,13 @@ public class RegistroColetaDAO implements GenericDAO<RegistroColeta>{
         return list;
     }
 
-    public List<RegistroColeta> selectMaximoDadoRegistroColetaNoIntervalo(Integer idDadosClinicos,
-                                                               String dataInicio, String dataFinal, String dado) {
+    public List<RegistroColeta> selectGlicemiaMaximaNoIntervalo(Integer idDadosClinicos,
+                                                               String dataInicio, String dataFinal) {
         SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
 
         ArrayList<RegistroColeta> list;
 
-        Cursor c = db.rawQuery("SELECT MAX(" + dado + "), data_registro FROM registro_coleta WHERE " +
+        Cursor c = db.rawQuery("SELECT MAX(glicemia), data_registro FROM registro_coleta WHERE " +
                 "registro_coleta_id_dados_clinicos = ?" +
                 "AND data_registro BETWEEN ? AND ? GROUP BY data_registro ORDER BY data_registro",
                 new String[]{idDadosClinicos.toString(), dataInicio, dataFinal});
@@ -115,14 +124,14 @@ public class RegistroColetaDAO implements GenericDAO<RegistroColeta>{
         return list;
     }
 
-    public List<RegistroColeta> selectMinimoDadoRegistroColetaNoIntervalo(Integer idDadosClinicos,
-                                                                          String dataInicio, String dataFinal, String dado) {
+    public List<RegistroColeta> selectGlicemiaMinimaNoIntervalo(Integer idDadosClinicos,
+                                                                String dataInicio, String dataFinal) {
         SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
 
         ArrayList<RegistroColeta> list;
 
-        Cursor c = db.rawQuery("SELECT MAX(" + dado + "), data_registro FROM registro_coleta WHERE " +
-                        "registro_coleta_id_dados_clinicos = ?" +
+        Cursor c = db.rawQuery("SELECT MIN(glicemia), data_registro FROM registro_coleta WHERE " +
+                        "registro_coleta_id_dados_clinicos = ? AND glicemia IS NOT NULL" +
                         "AND data_registro BETWEEN ? AND ? GROUP BY data_registro ORDER BY data_registro",
                 new String[]{idDadosClinicos.toString(), dataInicio, dataFinal});
         if(c != null) {
@@ -130,6 +139,166 @@ public class RegistroColetaDAO implements GenericDAO<RegistroColeta>{
             while(c.moveToNext()){
                 RegistroColeta rc = new RegistroColeta();
                 rc.setGlicemia(c.getInt(0));
+                rc.setDataColeta(AppUtils.converterData(c.getString(1)));
+                list.add(rc);
+            }
+            c.close();
+        } else {
+            list = new ArrayList<>();
+        }
+        db.close();
+        return list;
+    }
+
+    public List<RegistroColeta> selectPressaoSistolicaMaximaNoIntervalo(Integer idDadosClinicos,
+                                                                        String dataInicio, String dataFinal) {
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+
+        ArrayList<RegistroColeta> list;
+
+        Cursor c = db.rawQuery("SELECT MAX(pressao_sistolica), pressao_diastolica, data_registro " +
+                "FROM registro_coleta WHERE registro_coleta_id_dados_clinicos = ? " +
+                "AND pressao_sistolica IS NOT NULL AND data_registro BETWEEN ? AND ? " +
+                "GROUP BY data_registro ORDER BY data_registro",
+                new String[]{idDadosClinicos.toString(), dataInicio, dataFinal});
+        if(c != null) {
+            list = new ArrayList<>(c.getCount());
+            while(c.moveToNext()){
+                RegistroColeta rc = new RegistroColeta();
+                rc.setPressaoSistolica(c.getInt(0));
+                rc.setPressaoDiastolica(c.getInt(1));
+                rc.setDataColeta(AppUtils.converterData(c.getString(2)));
+                list.add(rc);
+            }
+            c.close();
+        } else {
+            list = new ArrayList<>();
+        }
+        db.close();
+        return list;
+    }
+
+    public List<RegistroColeta> selectPressaoDiastolicaMinimaNoIntervalo(Integer idDadosClinicos,
+                                                                         String dataInicio, String dataFinal) {
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+
+        ArrayList<RegistroColeta> list;
+
+        Cursor c = db.rawQuery("SELECT MIN(pressao_diastolica), pressao_sistolica, data_registro " +
+                "FROM registro_coleta WHERE registro_coleta_id_dados_clinicos = ? " +
+                "AND pressao_diastolica IS NOT NULL AND data_registro BETWEEN ? AND ? " +
+                "GROUP BY data_registro ORDER BY data_registro",
+                new String[]{idDadosClinicos.toString(), dataInicio, dataFinal});
+        if(c != null) {
+            list = new ArrayList<>(c.getCount());
+            while(c.moveToNext()){
+                RegistroColeta rc = new RegistroColeta();
+                rc.setPressaoDiastolica(c.getInt(0));
+                rc.setPressaoSistolica(c.getInt(1));
+                rc.setDataColeta(AppUtils.converterData(c.getString(2)));
+                list.add(rc);
+            }
+            c.close();
+        } else {
+            list = new ArrayList<>();
+        }
+        db.close();
+        return list;
+    }
+
+    public List<RegistroColeta> selectPesoMaximoNoIntervalo(Integer idDadosClinicos,
+                                                            String dataInicio, String dataFinal) {
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+
+        ArrayList<RegistroColeta> list;
+
+        Cursor c = db.rawQuery("SELECT MAX(peso), data_registro FROM registro_coleta WHERE " +
+                        "registro_coleta_id_dados_clinicos = ? AND peso IS NOT NULL " +
+                        "AND data_registro BETWEEN ? AND ? GROUP BY data_registro ORDER BY data_registro",
+                new String[]{idDadosClinicos.toString(), dataInicio, dataFinal});
+        if(c != null) {
+            list = new ArrayList<>(c.getCount());
+            while(c.moveToNext()){
+                RegistroColeta rc = new RegistroColeta();
+                rc.setPeso(c.getInt(0));
+                rc.setDataColeta(AppUtils.converterData(c.getString(1)));
+                list.add(rc);
+            }
+            c.close();
+        } else {
+            list = new ArrayList<>();
+        }
+        db.close();
+        return list;
+    }
+
+    public List<RegistroColeta> selectPesoMinimoNoIntervalo(Integer idDadosClinicos,
+                                                            String dataInicio, String dataFinal) {
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+
+        ArrayList<RegistroColeta> list;
+
+        Cursor c = db.rawQuery("SELECT MIN(peso), data_registro FROM registro_coleta WHERE " +
+                        "registro_coleta_id_dados_clinicos = ? AND peso IS NOT NULL " +
+                        "AND data_registro BETWEEN ? AND ? GROUP BY data_registro ORDER BY data_registro",
+                new String[]{idDadosClinicos.toString(), dataInicio, dataFinal});
+        if(c != null) {
+            list = new ArrayList<>(c.getCount());
+            while(c.moveToNext()){
+                RegistroColeta rc = new RegistroColeta();
+                rc.setPeso(c.getInt(0));
+                rc.setDataColeta(AppUtils.converterData(c.getString(1)));
+                list.add(rc);
+            }
+            c.close();
+        } else {
+            list = new ArrayList<>();
+        }
+        db.close();
+        return list;
+    }
+
+    public List<RegistroColeta> selectGastoCaloricoMaximoNoIntervalo(Integer idDadosClinicos,
+                                                                     String dataInicio, String dataFinal) {
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+
+        ArrayList<RegistroColeta> list;
+
+        Cursor c = db.rawQuery("SELECT MAX(gasto_calorico), data_registro FROM registro_coleta WHERE " +
+                        "registro_coleta_id_dados_clinicos = ? AND gasto_calorico IS NOT NULL " +
+                        "AND data_registro BETWEEN ? AND ? GROUP BY data_registro ORDER BY data_registro",
+                new String[]{idDadosClinicos.toString(), dataInicio, dataFinal});
+        if(c != null) {
+            list = new ArrayList<>(c.getCount());
+            while(c.moveToNext()){
+                RegistroColeta rc = new RegistroColeta();
+                rc.setGastoCalorico(c.getInt(0));
+                rc.setDataColeta(AppUtils.converterData(c.getString(1)));
+                list.add(rc);
+            }
+            c.close();
+        } else {
+            list = new ArrayList<>();
+        }
+        db.close();
+        return list;
+    }
+
+    public List<RegistroColeta> selectGastoCaloricoMinimoNoIntervalo(Integer idDadosClinicos,
+                                                                     String dataInicio, String dataFinal) {
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+
+        ArrayList<RegistroColeta> list;
+
+        Cursor c = db.rawQuery("SELECT MIN(gasto_calorico), data_registro FROM registro_coleta WHERE " +
+                        "registro_coleta_id_dados_clinicos = ? AND gasto_calorico IS NOT NULL " +
+                        "AND data_registro BETWEEN ? AND ? GROUP BY data_registro ORDER BY data_registro",
+                new String[]{idDadosClinicos.toString(), dataInicio, dataFinal});
+        if(c != null) {
+            list = new ArrayList<>(c.getCount());
+            while(c.moveToNext()){
+                RegistroColeta rc = new RegistroColeta();
+                rc.setGastoCalorico(c.getInt(0));
                 rc.setDataColeta(AppUtils.converterData(c.getString(1)));
                 list.add(rc);
             }

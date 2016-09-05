@@ -22,8 +22,8 @@ import sdr.ufscar.dev.srdc.application.SRDCApplication;
 import sdr.ufscar.dev.srdc.facade.DadosClinicosFacade;
 import sdr.ufscar.dev.srdc.model.Cidadao;
 import sdr.ufscar.dev.srdc.model.DadosClinicos;
-import sdr.ufscar.dev.srdc.model.DiasEnum;
-import sdr.ufscar.dev.srdc.model.DoencaEnum;
+import sdr.ufscar.dev.srdc.enumeration.DiaEnum;
+import sdr.ufscar.dev.srdc.enumeration.DoencaEnum;
 import sdr.ufscar.dev.srdc.util.AppUtils;
 
 public class CadastroDadosClinicosActivity extends AppCompatActivity {
@@ -43,7 +43,7 @@ public class CadastroDadosClinicosActivity extends AppCompatActivity {
     private LinearLayout mLLHorarios;
     private ArrayList<Spinner> mHorariosSpinner;
 
-    private ArrayList<DiasEnum> mDias;
+    private ArrayList<DiaEnum> mDias;
 
     // Resposta dos alertas de erro
     private boolean mResposta;
@@ -56,28 +56,32 @@ public class CadastroDadosClinicosActivity extends AppCompatActivity {
         cidadao = app.getCidadaoInstance();
         mDias = new ArrayList<>(7);
 
-        setContentView(R.layout.activity_registro_dados_clinicos);
+        setContentView(R.layout.activity_cadastro_dados_clinicos);
 
         mETCnsProfissional = (EditText) findViewById(
-                R.id.activity_cadastrodadosclinicos_et_cnsprofissional);
-        mETCnes = (EditText) findViewById(R.id.activity_cadastrodadosclinicos_et_cnes);
-        mTVDoencas = (TextView) findViewById(R.id.activity_cadastrodadosclinicos_tv_doencas);
-        mSPNAltura = (Spinner) findViewById(R.id.activity_cadastrodadosclinicos_spn_altura);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getBaseContext(),
-                R.array.activity_cadastrodadosclinicos_alturas, android.R.layout.simple_spinner_item);
+                R.id.activity_cadastro_dados_clinicos_et_cnsprofissional);
+        mETCnes = (EditText) findViewById(R.id.activity_cadastro_dados_clinicos_et_cnes);
+        mTVDoencas = (TextView) findViewById(R.id.activity_cadastro_dados_clinicos_tv_doencas);
+        mSPNAltura = (Spinner) findViewById(R.id.activity_cadastro_dados_clinicos_spn_altura);
+        ArrayList<String> alturas = new ArrayList<>();
+        for(int i = 110; i < 250; i++){
+            alturas.add(i + "");
+        }
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(getBaseContext(),android.R.layout.simple_spinner_item,alturas);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSPNAltura.setAdapter(adapter);
 
-        mCHKI1015 = (CheckBox) findViewById(R.id.activity_cadastrodadosclinicos_chk_i1015);
-        mCHKE1014 = (CheckBox) findViewById(R.id.activity_cadastrodadosclinicos_chk_e1014);
-        mCHKE6568 = (CheckBox) findViewById(R.id.activity_cadastrodadosclinicos_chk_e6568);
+        mCHKI1015 = (CheckBox) findViewById(R.id.activity_cadastro_dados_clinicos_chk_i1015);
+        mCHKE1014 = (CheckBox) findViewById(R.id.activity_cadastro_dados_clinicos_chk_e1014);
+        mCHKE6568 = (CheckBox) findViewById(R.id.activity_cadastro_dados_clinicos_chk_e6568);
         mBTRemoverHorario =
-                (Button) findViewById(R.id.activity_cadastrodadosclinicos_bt_removerhorario);
+                (Button) findViewById(R.id.activity_cadastro_dados_clinicos_bt_removerhorario);
 
         mLLHorarios = (LinearLayout) findViewById(R.id.activity_cadastrodadosclinicas_ll_horarios);
         mHorariosSpinner = new ArrayList<>();
 
-        mETObservacoes = (EditText) findViewById(R.id.activity_cadastrodadosclinicos_et_observacoes);
+        mETObservacoes = (EditText) findViewById(R.id.activity_cadastro_dados_clinicos_et_observacoes);
 
         mCHKEnviarNotificao = (CheckBox) findViewById(
                 R.id.activity_cadastrodadosclinicas_chk_enviarnotificacao);
@@ -100,13 +104,13 @@ public class CadastroDadosClinicosActivity extends AppCompatActivity {
         if(mHorariosSpinner.size() < 8) {
             Spinner spn = new Spinner(this);
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getBaseContext(),
-                    R.array.activity_cadastrodadosclinicos_horarios, android.R.layout.simple_spinner_item);
+                    R.array.activity_cadastro_dados_clinicos_horarios, android.R.layout.simple_spinner_item);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spn.setAdapter(adapter);
             mHorariosSpinner.add(spn);
             mLLHorarios.addView(spn);
         } else {
-            Toast.makeText(getBaseContext(),R.string.activity_cadastrodadosclinicos_horariosexcedidos,
+            Toast.makeText(getBaseContext(),R.string.activity_cadastro_dados_clinicos_horarios_excedidos,
                     Toast.LENGTH_SHORT).show();
         }
         mBTRemoverHorario.setEnabled(true);
@@ -117,9 +121,9 @@ public class CadastroDadosClinicosActivity extends AppCompatActivity {
     public void mudarDia(View v){
         CheckBox chk = (CheckBox) v;
         if(chk.isChecked()) {
-            mDias.add(DiasEnum.valueOf(chk.getText().toString().toUpperCase()));
+            mDias.add(DiaEnum.valueOf(chk.getText().toString().toUpperCase()));
         } else {
-            mDias.remove(DiasEnum.valueOf(chk.getText().toString().toUpperCase()));
+            mDias.remove(DiaEnum.valueOf(chk.getText().toString().toUpperCase()));
         }
      }
     /**

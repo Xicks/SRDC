@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:srdc="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_inicio_logout"
+        android:title="@string/menu_logout"
+        android:icon="@drawable/ic_logout"
+        srdc:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_inicio_cadastro_registro_atividade_fisica"
+        android:title="@string/menu_cadastro_registro_atividade_fisica"
+        android:icon="@drawable/ic_atividade_fisica"
+        srdc:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_inicio_graficos"
+        android:title="@string/menu_graficos"
+        android:icon="@drawable/ic_grafico"
+        srdc:showAsAction="ifRoom" />
+
+</menu>

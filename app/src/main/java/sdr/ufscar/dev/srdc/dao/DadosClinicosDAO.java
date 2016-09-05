@@ -5,17 +5,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import sdr.ufscar.dev.srdc.model.DadosClinicos;
-import sdr.ufscar.dev.srdc.model.DiasEnum;
-import sdr.ufscar.dev.srdc.model.DoencaEnum;
+import sdr.ufscar.dev.srdc.enumeration.DoencaEnum;
 import sdr.ufscar.dev.srdc.util.AppUtils;
 
 /**
  * Created by bento on 28/08/16.
  */
-public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
+public class DadosClinicosDAO implements GenericDAO<DadosClinicos>{
 
     /**
      * Insere um novo registro no banco da entidade Dados Clinicos
@@ -176,7 +174,7 @@ public class DadosClinicosDAO extends GenericDAO<DadosClinicos>{
                     new String[]{IdDadosClinicos.toString()});
             if(c != null){
                 while(c.moveToNext()){
-                    horasColeta.add(Integer.parseInt(c.getString(3)));
+                    horasColeta.add(Integer.parseInt(c.getString(2)));
                 }
             }
             dadosClinicos.setHorasColeta(horasColeta);

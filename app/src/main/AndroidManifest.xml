@@ -16,10 +16,8 @@
             android:label="@string/empty" />
         <activity
             android:name=".activity.CadastroCidadaoActivity"
-            android:label="@string/activity_cadastrocidadao_tituloactivity"
+            android:label="@string/activity_cadastro_cidadao_tituloactivity"
             android:noHistory="true" />
-        <activity android:name=".activity.RegistrosActivity" />
-        <activity android:name=".activity.CadastroRegistroActivity" />
         <activity
             android:name=".activity.MainActivity"
             android:noHistory="true"
@@ -32,9 +30,18 @@
         </activity>
         <activity
             android:name=".activity.CadastroDadosClinicosActivity"
-            android:label="@string/activity_cadastrodadosclinicos_tituloactivity">
-
-        </activity>
+            android:label="@string/activity_cadastro_dados_clinicos_tituloactivity" />
+        <activity android:name=".activity.InicioActivity" />
+        <activity android:name=".activity.CadastroRegistroColetaActivity" />
+        <activity android:name=".activity.CadastroRegistroAtividadeFisica" />
+        <activity
+            android:name=".activity.GraficoActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+        <activity android:name=".activity.EscolherVisualizacaoActivity" />
+        <activity android:name=".activity.ListaRegistros"></activity>
+        <activity android:name=".activity.HelpTelaInicial" />
+        <activity android:name=".activity.HelpTelaAtividades" />
+        <activity android:name=".activity.HelpTelaSensores"></activity>
     </application>
 
 </manifest>

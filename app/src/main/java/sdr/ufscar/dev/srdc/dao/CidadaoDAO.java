@@ -16,7 +16,7 @@ import sdr.ufscar.dev.srdc.util.AppUtils;
 /**
  * Created by Schick on 8/23/16.
  */
-public class CidadaoDAO extends GenericDAO<Cidadao>{
+public class CidadaoDAO implements GenericDAO<Cidadao>{
 
     /**
      * Insere um novo registro no banco da entidade Cidadao
@@ -37,7 +37,11 @@ public class CidadaoDAO extends GenericDAO<Cidadao>{
         // Retorno id do novo registro ou -1 caso haja erro
         long id = bd.insert("cidadao", null, cv);
         bd.close();
-        return id != -1;
+        if(id != -1) {
+            cidadao.setIdCidadao((int) id);
+            return Boolean.TRUE;
+        }
+        return Boolean.FALSE;
     }
 
     /**

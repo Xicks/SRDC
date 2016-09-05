@@ -17,10 +17,10 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/activity_cadastrodadosclinicos_tv_dadosdoprofissional"
+                android:id="@+id/activity_cadastro_dados_clinicos_tv_dadosdoprofissional"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrodadosclinicos_dadosdoprofissional"
+                android:text="@string/activity_cadastro_dados_clinicos_dadosdoprofissional"
                 android:textStyle="bold"/>
 
             <View
@@ -30,38 +30,38 @@
                 android:background="@android:color/darker_gray"/>
 
             <TextView
-                android:id="@+id/activity_cadastrodadosclinicos_tv_cnsprofissional"
+                android:id="@+id/activity_cadastro_dados_clinicos_tv_cnsprofissional"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrodadosclinicos_cnsprofissional"/>
+                android:text="@string/activity_cadastro_dados_clinicos_cnsprofissional"/>
 
             <EditText
-                android:id="@+id/activity_cadastrodadosclinicos_et_cnsprofissional"
+                android:id="@+id/activity_cadastro_dados_clinicos_et_cnsprofissional"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="15"/>
 
             <TextView
-                android:id="@+id/activity_cadastrodadosclinicos_tv_cnes"
+                android:id="@+id/activity_cadastro_dados_clinicos_tv_cnes"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrodadosclinicos_cnes"/>
+                android:text="@string/activity_cadastro_dados_clinicos_cnes"/>
 
             <EditText
-                android:id="@+id/activity_cadastrodadosclinicos_et_cnes"
+                android:id="@+id/activity_cadastro_dados_clinicos_et_cnes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="15"/>
 
             <TextView
-                android:id="@+id/activity_cadastrodadosclinicos_tv_dadosclinicos"
+                android:id="@+id/activity_cadastro_dados_clinicos_tv_dadosclinicos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:text="@string/activity_cadastrodadosclinicos_dadosclinicos"
+                android:text="@string/activity_cadastro_dados_clinicos_dadosclinicos"
                 android:textStyle="bold"/>
 
             <View
@@ -71,50 +71,50 @@
                 android:background="@android:color/darker_gray"/>
 
             <TextView
-                android:id="@+id/activity_cadastrodadosclinicos_tv_altura"
+                android:id="@+id/activity_cadastro_dados_clinicos_tv_altura"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrodadosclinicos_altura" />
+                android:text="@string/activity_cadastro_dados_clinicos_altura" />
 
             <Spinner
-                android:id="@+id/activity_cadastrodadosclinicos_spn_altura"
+                android:id="@+id/activity_cadastro_dados_clinicos_spn_altura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             </Spinner>
 
             <TextView
-                android:id="@+id/activity_cadastrodadosclinicos_tv_doencas"
+                android:id="@+id/activity_cadastro_dados_clinicos_tv_doencas"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrodadosclinicos_doencasmonitoradas" />
+                android:text="@string/activity_cadastro_dados_clinicos_doencasmonitoradas" />
 
             <CheckBox
-                android:id="@+id/activity_cadastrodadosclinicos_chk_i1015"
+                android:id="@+id/activity_cadastro_dados_clinicos_chk_i1015"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/activity_cadastrodadosclinicos_i1015"/>
+                android:text="@string/activity_cadastro_dados_clinicos_i1015"/>
 
             <CheckBox
-                android:id="@+id/activity_cadastrodadosclinicos_chk_e1014"
+                android:id="@+id/activity_cadastro_dados_clinicos_chk_e1014"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/activity_cadastrodadosclinicos_e1014"/>
+                android:text="@string/activity_cadastro_dados_clinicos_e1014"/>
 
             <CheckBox
-                android:id="@+id/activity_cadastrodadosclinicos_chk_e6568"
+                android:id="@+id/activity_cadastro_dados_clinicos_chk_e6568"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/activity_cadastrodadosclinicos_e6568"/>
+                android:text="@string/activity_cadastro_dados_clinicos_e6568"/>
 
             <TextView
-                android:id="@+id/activity_cadastrodadosclinicos_tv_dadosmonitoramento"
+                android:id="@+id/activity_cadastro_dados_clinicos_tv_dadosmonitoramento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:text="@string/activity_cadastrodadosclinicos_dadosmonitoramento"
+                android:text="@string/activity_cadastro_dados_clinicos_dadosmonitoramento"
                 android:textStyle="bold"/>
 
             <View
@@ -124,11 +124,11 @@
                 android:background="@android:color/darker_gray"/>
 
             <TextView
-                android:id="@+id/activity_cadastrodadosclinicos_tv_diasdecoleta"
+                android:id="@+id/activity_cadastro_dados_clinicos_tv_diasdecoleta"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrodadosclinicos_diasdecoleta" />
+                android:text="@string/activity_cadastro_dados_clinicos_diasdecoleta" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,55 +136,55 @@
                 android:gravity="center">
 
                 <CheckBox
-                    android:id="@+id/activity_cadastrodadosclinicos_chk_segunda"
+                    android:id="@+id/activity_cadastro_dados_clinicos_chk_segunda"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_segunda"
+                    android:text="@string/activity_cadastro_dados_clinicos_segunda"
                     android:onClick="mudarDia"/>
                 <CheckBox
-                    android:id="@+id/activity_cadastrodadosclinicos_chk_terca"
+                    android:id="@+id/activity_cadastro_dados_clinicos_chk_terca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_terca"
+                    android:text="@string/activity_cadastro_dados_clinicos_terca"
                     android:onClick="mudarDia"/>
                 <CheckBox
-                    android:id="@+id/activity_cadastrodadosclinicos_chk_quarta"
+                    android:id="@+id/activity_cadastro_dados_clinicos_chk_quarta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_quarta"
+                    android:text="@string/activity_cadastro_dados_clinicos_quarta"
                     android:onClick="mudarDia"/>
                 <CheckBox
-                    android:id="@+id/activity_cadastrodadosclinicos_chk_quinta"
+                    android:id="@+id/activity_cadastro_dados_clinicos_chk_quinta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_quinta"
+                    android:text="@string/activity_cadastro_dados_clinicos_quinta"
                     android:onClick="mudarDia"/>
                 <CheckBox
-                    android:id="@+id/activity_cadastrodadosclinicos_chk_sexta"
+                    android:id="@+id/activity_cadastro_dados_clinicos_chk_sexta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_sexta"
+                    android:text="@string/activity_cadastro_dados_clinicos_sexta"
                     android:onClick="mudarDia"/>
                 <CheckBox
-                    android:id="@+id/activity_cadastrodadosclinicos_chk_sabado"
+                    android:id="@+id/activity_cadastro_dados_clinicos_chk_sabado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_sabado"
+                    android:text="@string/activity_cadastro_dados_clinicos_sabado"
                     android:onClick="mudarDia"/>
                 <CheckBox
-                    android:id="@+id/activity_cadastrodadosclinicos_chk_domingo"
+                    android:id="@+id/activity_cadastro_dados_clinicos_chk_domingo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_domingo"
+                    android:text="@string/activity_cadastro_dados_clinicos_domingo"
                     android:onClick="mudarDia"/>
             </LinearLayout>
 
             <TextView
-                android:id="@+id/activity_cadastrodadosclinicos_tv_horariosdecoleta"
+                android:id="@+id/activity_cadastro_dados_clinicos_tv_horariosdecoleta"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrodadosclinicos_horariosdecoleta" />
+                android:text="@string/activity_cadastro_dados_clinicos_horariosdecoleta" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -192,14 +192,14 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/activity_cadastrodadosclinicos_adicionar_horario"
+                    android:text="@string/activity_cadastro_dados_clinicos_adicionar_horario"
                     android:onClick="adicionarHorario"/>
                 <Button
-                    android:id="@+id/activity_cadastrodadosclinicos_bt_removerhorario"
+                    android:id="@+id/activity_cadastro_dados_clinicos_bt_removerhorario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:enabled="false"
-                    android:text="@string/activity_cadastrodadosclinicos_remover_horario"
+                    android:text="@string/activity_cadastro_dados_clinicos_remover_horario"
                     android:onClick="removerHorario"/>
 
             </LinearLayout>
@@ -215,17 +215,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:text="@string/activity_cadastrodadosclinicos_enviarnotificacao"/>
+                android:text="@string/activity_cadastro_dados_clinicos_enviarnotificacao"/>
 
             <TextView
-                android:id="@+id/activity_cadastrodadosclinicos_tv_observacoes"
+                android:id="@+id/activity_cadastro_dados_clinicos_tv_observacoes"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrodadosclinicos_observacoes" />
+                android:text="@string/activity_cadastro_dados_clinicos_observacoes" />
 
             <EditText
-                android:id="@+id/activity_cadastrodadosclinicos_et_observacoes"
+                android:id="@+id/activity_cadastro_dados_clinicos_et_observacoes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
@@ -234,10 +234,10 @@
                 android:minLines="5"/>
 
             <Button
-                android:id="@+id/activity_cadastrodadosclinicos_btn_cadastrar"
+                android:id="@+id/activity_cadastro_dados_clinicos_btn_cadastrar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrodadosclinicos_cadastrar"
+                android:text="@string/activity_cadastro_dados_clinicos_cadastrar"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:onClick="cadastrar"/>
 

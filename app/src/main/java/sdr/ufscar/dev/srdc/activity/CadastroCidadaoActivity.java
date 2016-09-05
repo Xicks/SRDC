@@ -49,14 +49,14 @@ public class CadastroCidadaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_cidadao);
 
-        mETNome = (EditText) findViewById(R.id.activity_cadastrocidadao_et_nome);
-        mETCidade = (EditText) findViewById(R.id.activity_cadastrocidadao_et_cidade);
-        mETCpf = (EditText) findViewById(R.id.activity_cadastrocidadao_et_cpf);
-        mTVCpf = (TextView) findViewById(R.id.activity_cadastrocidadao_tv_cpf);
-        mETCns = (EditText) findViewById(R.id.activity_cadastrocidadao_et_cns);
-        mTVCns = (TextView) findViewById(R.id.activity_cadastrocidadao_tv_cns);
-        mSPNEstados = (Spinner) findViewById(R.id.activity_cadastrocidadao_spn_estado);
-        mETDataNascimento = (EditText) findViewById(R.id.activity_cadastrocidadao_et_datanascimento);
+        mETNome = (EditText) findViewById(R.id.activity_cadastro_cidadao_et_nome);
+        mETCidade = (EditText) findViewById(R.id.activity_cadastro_cidadao_et_cidade);
+        mETCpf = (EditText) findViewById(R.id.activity_cadastro_cidadao_et_cpf);
+        mTVCpf = (TextView) findViewById(R.id.activity_cadastro_cidadao_tv_cpf);
+        mETCns = (EditText) findViewById(R.id.activity_cadastro_cidadao_et_cns);
+        mTVCns = (TextView) findViewById(R.id.activity_cadastro_cidadao_tv_cns);
+        mSPNEstados = (Spinner) findViewById(R.id.activity_cadastro_cidadao_spn_estado);
+        mETDataNascimento = (EditText) findViewById(R.id.activity_cadastro_cidadao_et_datanascimento);
 
         mDataNascimento = Calendar.getInstance();
         mDPDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener(){
@@ -69,8 +69,10 @@ public class CadastroCidadaoActivity extends AppCompatActivity {
 
         },mDataNascimento.get(Calendar.YEAR), mDataNascimento.get(Calendar.MONTH), mDataNascimento.get(Calendar.DAY_OF_MONTH));
 
-        mCHKNaoTenhoCNS = (CheckBox) findViewById(R.id.activity_cadastrocidadao_chk_naotenhocns);
-        mETSenha = (EditText) findViewById(R.id.activity_cadastrocidadao_et_senha);
+        mETDataNascimento.setText(new SimpleDateFormat("dd/MM/yyyy")
+                .format(mDataNascimento.getTime()));
+        mCHKNaoTenhoCNS = (CheckBox) findViewById(R.id.activity_cadastro_cidadao_chk_naotenhocns);
+        mETSenha = (EditText) findViewById(R.id.activity_cadastro_cidadao_et_senha);
         popularEstados();
     }
 
@@ -79,7 +81,7 @@ public class CadastroCidadaoActivity extends AppCompatActivity {
      */
     public void popularEstados() {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getBaseContext(),
-                R.array.activity_cadastrocidadao_estados, android.R.layout.simple_spinner_item);
+                R.array.activity_cadastro_cidadao_estados, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSPNEstados.setAdapter(adapter);
     }

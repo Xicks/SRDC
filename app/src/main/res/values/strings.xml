@@ -3,9 +3,12 @@
     <string name="empty"></string>
     <string name="sim">Sim</string>
     <string name="nao">Não</string>
+    <string name="voltar">Voltar</string>
 
     <!-- MENUS -->
     <string name="menu_logout">Sair</string>
+    <string name="menu_cadastro_registro_atividade_fisica">Registro de Atividade Física</string>
+    <string name="menu_graficos">Gráficos</string>
     <!-- TOAST -->
     <string name="activity_login_cpf_cns_invalido">CPF/CNS ou senha inválido!</string>
     <string name="activity_cadastro_dados_clinicos_horarios_excedidos">Número de horários excedido"</string>
