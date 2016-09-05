@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.StringTokenizer;
 
+import sdr.ufscar.dev.srdc.enumeration.DiaEnum;
+import sdr.ufscar.dev.srdc.enumeration.DoencaEnum;
+
 /**
  * Created by Schick on 8/26/16.
  */
@@ -15,7 +18,8 @@ public class DadosClinicos {
     private Date dataRegistro;
     private Integer altura;
     private ArrayList<DoencaEnum> doencas;
-    private ArrayList<Registro> registros;
+    private ArrayList<RegistroColeta> registrosColeta;
+    private ArrayList<RegistroAtividadeFisica> registrosAtividadeFisica;
     private String diasColeta;
     private ArrayList<Integer> horasColeta;
     private String observacoes;
@@ -69,19 +73,27 @@ public class DadosClinicos {
         this.doencas = doencas;
     }
 
-    public ArrayList<Registro> getRegistros() {
-        return registros;
+    public ArrayList<RegistroColeta> getRegistrosColeta() {
+        return registrosColeta;
     }
 
-    public void setRegistros(ArrayList<Registro> registros) {
-        this.registros = registros;
+    public void setRegistrosColeta(ArrayList<RegistroColeta> registrosColeta) {
+        this.registrosColeta = registrosColeta;
     }
 
-    public ArrayList<DiasEnum> getDiasColetaEnum() {
+    public ArrayList<RegistroAtividadeFisica> getRegistrosAtividadeFisica() {
+        return registrosAtividadeFisica;
+    }
+
+    public void setRegistrosAtividadeFisica(ArrayList<RegistroAtividadeFisica> registrosAtividadeFisica) {
+        this.registrosAtividadeFisica = registrosAtividadeFisica;
+    }
+
+    public ArrayList<DiaEnum> getDiasColetaEnum() {
         StringTokenizer tokenizer = new StringTokenizer(diasColeta);
-        ArrayList<DiasEnum> dias = new ArrayList<>(7);
+        ArrayList<DiaEnum> dias = new ArrayList<>(7);
         while(tokenizer.hasMoreTokens()){
-            dias.add(DiasEnum.valueOf(tokenizer.nextToken()));
+            dias.add(DiaEnum.valueOf(tokenizer.nextToken()));
         }
         return dias;
     }
@@ -90,9 +102,9 @@ public class DadosClinicos {
         return diasColeta;
     }
 
-    public void setDiasColeta(ArrayList<DiasEnum> diasColeta) {
+    public void setDiasColeta(ArrayList<DiaEnum> diasColeta) {
         StringBuilder sb = new StringBuilder();
-        for(DiasEnum dia: diasColeta) {
+        for(DiaEnum dia: diasColeta) {
             sb.append(dia.getDia());
             sb.append(" ");
         }
@@ -103,7 +115,7 @@ public class DadosClinicos {
         this.diasColeta = diasColeta;
     }
 
-    public ArrayList<Integer> getHorasColeta() {
+    public ArrayList<Integer> getHorasColeta(){
         return horasColeta;
     }
 

@@ -41,6 +41,18 @@ public class DatabaseHelper {
                     "PRIMARY KEY AUTOINCREMENT, hora_coleta_id_dados_clinicos INTEGER, " +
                     "hora TEXT, FOREIGN KEY(hora_coleta_id_dados_clinicos) " +
                     "REFERENCES dados_clinicos(dados_clinicos_id_dados_clinicos));");
+            db.execSQL("CREATE TABLE registro_coleta(registro_coleta_id_registro_coleta INTEGER " +
+                    "PRIMARY KEY AUTOINCREMENT, registro_coleta_id_dados_clinicos INTEGER, " +
+                    "pressao_sistolica INTEGER, pressao_diastolica INTEGER, glicemia INTEGER, " +
+                    "peso INTEGER, gasto_calorico INTEGER, data_registro TEXT, " +
+                    "FOREIGN KEY(registro_coleta_id_dados_clinicos) REFERENCES " +
+                    "dados_clinicos(dados_clinicos_id_dados_clinicos));");
+            db.execSQL("CREATE TABLE registro_atividade_fisica(" +
+                    "registro_atividade_fisica_id_registro_atividade_fisica INTEGER " +
+                    "PRIMARY KEY AUTOINCREMENT, registro_atividade_fisica_id_dados_clinicos INTEGER, " +
+                    "dias INTEGER, tempo_aproximado INTEGER, atividades TEXT, data_registro TEXT, " +
+                    "FOREIGN KEY(registro_atividade_fisica_id_dados_clinicos) REFERENCES " +
+                    "dados_clinicos(dados_clinicos_id_dados_clinicos));");
             db.close();
         }
         helper = new DatabaseHelper();

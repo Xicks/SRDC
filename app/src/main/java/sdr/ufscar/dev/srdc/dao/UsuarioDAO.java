@@ -11,7 +11,7 @@ import sdr.ufscar.dev.srdc.model.Usuario;
 /**
  * Created by Schick on 8/23/16.
  */
-public class UsuarioDAO extends GenericDAO<Usuario>{
+public class UsuarioDAO implements GenericDAO<Usuario>{
 
     /**
      * Insere um novo registro no banco da entidade Usuario.

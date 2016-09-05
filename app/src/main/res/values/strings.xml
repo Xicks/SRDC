@@ -1,10 +1,29 @@
 <resources>
     <string name="app_name">SRDC</string>
     <string name="empty"></string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="voltar">Voltar</string>
 
+    <!-- MENUS -->
+    <string name="menu_logout">Sair</string>
+    <string name="menu_cadastro_registro_atividade_fisica">Registro de Atividade Física</string>
+    <string name="menu_graficos">Gráficos</string>
+    <string name="menu_alterar_dados">Alterar Dados</string>
+    <string name="menu_ajuda">Ajuda</string>
+    <string name="menu_cadastro_registro_coleta">Registro de Coleta</string>
     <!-- TOAST -->
-    <string name="activity_login_cpfcnsinvalido">CPF/CNS ou senha inválido!</string>
-    <string name="activity_cadastrodadosclinicos_horariosexcedidos">Número de horários excedido"</string>
+    <string name="activity_login_cpf_cns_invalido">CPF/CNS ou senha inválido!</string>
+    <string name="activity_cadastro_dados_clinicos_horarios_excedidos">Número de horários excedido"</string>
+    <string name="activity_cadastro_registro_atividade_fisica_atividade_invalida">
+        Escolha um tipo de atividade</string>
+    <!-- REGISTRO ROW -->
+    <string name="registro_row_data_registro">DATA DE REGISTRO:&#160;</string>
+    <string name="registro_row_pressao_sistolica">P. SIS.:&#160;</string>
+    <string name="registro_row_pressao_diastolica">P. DIAS.:&#160;</string>
+    <string name="registro_row_glicemia">GLICEMIA:&#160;</string>
+    <string name="registro_row_peso">PESO:&#160;</string>
+    <string name="registro_row_gasto_calorico">GASTO CALÓRICO:&#160;</string>
     <!-- ACTIVITY LOGIN -->
     <string name="activity_login_titulo">Sistema de Registro de Dados Clínicos</string>
     <string name="activity_login_cpfcns">CPF/CNS</string>
@@ -13,14 +32,14 @@
     <string name="activity_login_naocadastrado">Não cadastrado?</string>
     <string name="activity_login_cadastrarcidadao">Cadastrar Cidadão</string>
     <!-- ACTIVITY CADASTRO CIDADAO -->
-    <string name="activity_cadastrocidadao_tituloactivity">Cadastrar Cidadão</string>
-    <string name="activity_cadastrocidadao_dadosbasicos">Dados Básicos</string>
-    <string name="activity_cadastrocidadao_nome">Nome:</string>
-    <string name="activity_cadastrocidadao_cpf">Cadastro de Pessoa Física(CPF):</string>
-    <string name="activity_cadastrocidadao_naotenhocns">Não tenho CNS</string>
-    <string name="activity_cadastrocidadao_cns">Cartão Nacional de Saúde (CNS):</string>
-    <string name="activity_cadastrocidadao_datanascimento">Data de Nascimento:</string>
-    <string-array name="activity_cadastrocidadao_estados">
+    <string name="activity_cadastro_cidadao_title">Cadastrar Cidadão</string>
+    <string name="activity_cadastro_cidadao_dadosbasicos">Dados Básicos</string>
+    <string name="activity_cadastro_cidadao_nome">Nome:</string>
+    <string name="activity_cadastro_cidadao_cpf">Cadastro de Pessoa Física (CPF):</string>
+    <string name="activity_cadastro_cidadao_naotenhocns">Não tenho CNS</string>
+    <string name="activity_cadastro_cidadao_cns">Cartão Nacional de Saúde (CNS):</string>
+    <string name="activity_cadastro_cidadao_datanascimento">Data de Nascimento:</string>
+    <string-array name="activity_cadastro_cidadao_estados">
         <item>AC</item>
         <item>AL</item>
         <item>AP</item>
@@ -49,46 +68,28 @@
         <item>SE</item>
         <item>TO</item>
     </string-array>
-    <string name="activity_cadastrocidadao_cidade">Cidade:</string>
-    <string name="activity_cadastrocidadao_estado">Estado:</string>
-    <string name="activity_cadastrocidadao_senha">Senha:</string>
-    <string name="activity_cadastrocidadao_informacaosenha">Senhas devem ter de 6 a 11 dígitos</string>
-    <string name="activity_cadastrocidadao_dadosdeseguranca">Dados de segurança</string>
-    <string name="activity_cadastrocidadao_cadastrar">Cadastrar</string>
+    <string name="activity_cadastro_cidadao_cidade">Cidade:</string>
+    <string name="activity_cadastro_cidadao_estado">Estado:</string>
+    <string name="activity_cadastro_cidadao_senha">Senha:</string>
+    <string name="activity_cadastro_cidadao_informacaosenha">Senhas devem ter de 6 a 11 dígitos</string>
+    <string name="activity_cadastro_cidadao_dadosdeseguranca">Dados de segurança</string>
+    <string name="activity_cadastro_cidadao_cadastrar">Cadastrar</string>
 
     <!-- ACTIVITY CADASTRO DADOS CLINICOS-->
-    <string name="activity_cadastrodadosclinicos_tituloactivity">Cadastro de Dados Clínicos</string>
-    <string name="activity_cadastrodadosclinicos_dadosdoprofissional">Dados do Profissional de Saúde</string>
-    <string name="activity_cadastrodadosclinicos_cnsprofissional">CNS do Profissional de Saúde:</string>
-    <string name="activity_cadastrodadosclinicos_cnes">Cadastro Nacional de Estabelecimentos de Saúde (CNES):</string>
-    <string name="activity_cadastrodadosclinicos_dadosclinicos">Dados Clínicos do Paciente</string>
-    <string name="activity_cadastrodadosclinicos_doencasmonitoradas">Doenças a serem monitoradas:</string>
-    <string name="activity_cadastrodadosclinicos_i1015">I10-I15 DOENÇAS HIPERTENSIVAS</string>
-    <string name="activity_cadastrodadosclinicos_e1014">E10-E14 DIABETES MELLITUS</string>
-    <string name="activity_cadastrodadosclinicos_e6568">E65-E68 OBESIDADE HIPERALIMENTAÇÃO</string>
-    <string name="activity_cadastrodadosclinicos_dadosmonitoramento">Dados de Monitoramento</string>
-    <string name="activity_cadastrodadosclinicos_horariosdecoleta">Horários de coleta:</string>
-    <string name="activity_cadastrodadosclinicos_diasdecoleta">Dias de coleta:</string>
-    <string name="activity_cadastrodadosclinicos_altura">Altura (cm):</string>
-    <string-array name="activity_cadastrodadosclinicos_alturas">
-        <item>100</item>
-        <item>110</item>
-        <item>120</item>
-        <item>130</item>
-        <item>140</item>
-        <item>150</item>
-        <item>160</item>
-        <item>170</item>
-        <item>180</item>
-        <item>190</item>
-        <item>200</item>
-        <item>210</item>
-        <item>220</item>
-        <item>230</item>
-        <item>240</item>
-        <item>250</item>
-    </string-array>
-    <string-array name="activity_cadastrodadosclinicos_horarios">
+    <string name="activity_cadastro_dados_clinicos_title">Cadastro de Dados Clínicos</string>
+    <string name="activity_cadastro_dados_clinicos_dadosdoprofissional">Dados do Profissional de Saúde</string>
+    <string name="activity_cadastro_dados_clinicos_cnsprofissional">CNS do Profissional de Saúde:</string>
+    <string name="activity_cadastro_dados_clinicos_cnes">Cadastro Nacional de Estabelecimentos de Saúde (CNES):</string>
+    <string name="activity_cadastro_dados_clinicos_dadosclinicos">Dados Clínicos do Paciente</string>
+    <string name="activity_cadastro_dados_clinicos_doencasmonitoradas">Doenças a serem monitoradas:</string>
+    <string name="activity_cadastro_dados_clinicos_i1015">I10-I15 DOENÇAS HIPERTENSIVAS</string>
+    <string name="activity_cadastro_dados_clinicos_e1014">E10-E14 DIABETES MELLITUS</string>
+    <string name="activity_cadastro_dados_clinicos_e6568">E65-E68 OBESIDADE HIPERALIMENTAÇÃO</string>
+    <string name="activity_cadastro_dados_clinicos_dadosmonitoramento">Dados de Monitoramento</string>
+    <string name="activity_cadastro_dados_clinicos_horariosdecoleta">Horários de coleta:</string>
+    <string name="activity_cadastro_dados_clinicos_diasdecoleta">Dias de coleta:</string>
+    <string name="activity_cadastro_dados_clinicos_altura">Altura (cm):</string>
+    <string-array name="activity_cadastro_dados_clinicos_horarios">
         <item>0:00</item>
         <item>1:00</item>
         <item>2:00</item>
@@ -114,6 +115,7 @@
         <item>22:00</item>
         <item>23:00</item>
     </string-array>
+<<<<<<< HEAD
     <string name="activity_cadastrodadosclinicos_segunda">Se</string>
     <string name="activity_cadastrodadosclinicos_terca">Te</string>
     <string name="activity_cadastrodadosclinicos_quarta">Qa</string>
@@ -126,4 +128,100 @@
     <string name="activity_cadastrodadosclinicos_enviarnotificacao">Enviar notificação nos horários de coleta?</string>
     <string name="title_activity_help_tela_inicial">HelpTelaInicial</string>
 
+=======
+    <string name="activity_cadastro_dados_clinicos_adicionar_horario">Adicionar Horário</string>
+    <string name="activity_cadastro_dados_clinicos_remover_horario">Remover Horário</string>
+    <string name="activity_cadastro_dados_clinicos_segunda">Se</string>
+    <string name="activity_cadastro_dados_clinicos_terca">Te</string>
+    <string name="activity_cadastro_dados_clinicos_quarta">Qa</string>
+    <string name="activity_cadastro_dados_clinicos_quinta">Qi</string>
+    <string name="activity_cadastro_dados_clinicos_sexta">Sx</string>
+    <string name="activity_cadastro_dados_clinicos_sabado">Sa</string>
+    <string name="activity_cadastro_dados_clinicos_domingo">Do</string>
+    <string name="activity_cadastro_dados_clinicos_cadastrar">Cadastrar</string>
+    <string name="activity_cadastro_dados_clinicos_observacoes">Observações</string>
+    <string name="activity_cadastro_dados_clinicos_enviarnotificacao">Enviar notificação nos horários de coleta?</string>
+    <!-- ACTIVITY INICIO -->
+    <string name="activity_inicio_informacao">Utilize o botão ao lado para realizar um novo registro de coleta</string>
+    <!-- ACTIVITY AJUDA INICIO -->
+    <string name="activity_ajuda_inicio_title">Ajuda</string>
+    <string name="activity_ajuda_inicio_registro_coleta">Nesta tela você poderá realizar os
+        lançamentos dos seus registros de coleta</string>
+    <string name="activity_ajuda_inicio_registro_atividade_fisica">Nesta tela você poderá realizar
+        os lançamentos de suas atividades físicas, a fim de se controlar suas periodicidade,
+        tempo e intensidade das atividades."</string>
+    <string name="activity_ajuda_inicio_graficos">Nesta tela você poderá visualizar gráficos que apresentam
+        o andamento dos seus dados fisiológicos.</string>
+    <string name="activity_ajuda_inicio_alterar_dados">Nesta tela você poderá alterar dados
+        pessoais, clínicos e senha</string>
+    <string name="activity_ajuda_inicio_logout">Sai da aplicação</string>
+    <!-- ACTIVITY CADASTRO REGISTRO COLETA-->
+    <string name="activity_cadastro_registro_coleta_title">Registro de Coleta</string>
+    <string name="activity_cadastro_registro_coleta_pressao_sistolica">Pressão Sistólica (mmHg):</string>
+    <string name="activity_cadastro_registro_coleta_pressao_diastolica">Pressão Diastólica (mmHg):</string>
+    <string name="activity_cadastro_registro_coleta_glicemia">Glicemia (mg/dl):</string>
+    <string name="activity_cadastro_registro_coleta_peso">Peso (Kg):</string>
+    <string name="activity_cadastro_registro_coleta_gasto_calorico">Gasto Calórico (Kcal):</string>
+    <string name="activity_cadastro_registro_coleta_registrar">Registrar</string>\
+    <!-- ACTIVITY AJUDA CADASTRO REGISTRO COLETA -->
+    <string name="activity_ajuda_cadastro_registro_coleta_title">Ajuda</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_pressao_titulo">Medindo a Pressão Arterial</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_pressao_orientacao">Na imagem acima
+        apresentam-se a pressão máxima (em vermelho, 13.6) e a pressão mínima (em azul, 8.8).</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_peso_titulo">Medindo o Peso</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_peso_orientacao">Na imagem acima apresenta-se
+        o peso de uma pessoa ao subir na balança (por exemplo, 51 kg).</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_glicemia_titulo">Medindo a Glicemia</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_glicemia_orientacao">Na imagem acima
+        apresenta-se o nível de glicemia em uma amostra sanguínea (por exemplo, 83).</string>
+    <!-- ACTIVITY CADASTRO REGISTRO ATIVIDADE FISICA -->
+    <string name="activity_cadastro_registro_atividade_fisica_title">Registro de Atividade Física</string>
+    <string name="activity_cadastro_registro_atividade_fisica_dias">Esta semana, pratiquei atividade fisica:</string>
+    <string-array name="activity_cadastro_registro_atividade_fisica_dias">
+        <item>1 Dia</item>
+        <item>2 Dias</item>
+        <item>3 Dias</item>
+        <item>4 Dias</item>
+        <item>5 Dias</item>
+        <item>6 Dias</item>
+        <item>7 Dias</item>
+    </string-array>
+    <string name="activity_cadastro_registro_atividade_fisica_tempo">Tempo aproximado total em horas:</string>
+    <string name="activity_cadastro_registro_atividade_fisica_tipo_atividade">Tipo(s) de atividade:</string>
+    <string name="activity_cadastro_registro_atividade_fisica_aerobico">Aeróbicos (Caminhada, Dança, Bicicleta...)</string>
+    <string name="activity_cadastro_registro_atividade_fisica_musculacao">Musculação</string>
+    <string name="activity_cadastro_registro_atividade_fisica_atividades_alongamento">
+        Atividades de Alongamento (Yoga, Pilates, etc)</string>
+    <string name="activity_cadastro_registro_atividade_fisica_esportes">
+        Esportes (Natação, Judô, Boxe, Tênis, etc)</string>
+    <string name="activity_cadastro_registro_atividade_fisica_registrar">Registrar</string>
+    <!-- ACTIVITY AJUDA CADASTRO REGISTRO ATIVIDADE FISICA -->
+    <string name="activity_ajuda_cadastro_registro_atividade_fisica_title">Ajuda</string>
+    <string name="activity_ajuda_cadastro_registro_atividade_fisica_alongamento">Esta atividade é
+        um tipo de exercício físico orientado para relaxamento, manutenção ou melhora da flexibilidade."</string>
+    <string name="activity_ajuda_cadastro_registro_atividade_fisica_musculacao">Esta atividade é uma forma
+        de exercício contrar resistência para o treinamento e desenvolvimento dos músculos esqueléticos.</string>
+    <string name="activity_ajuda_cadastro_registro_atividade_fisica_aerobico">Esta atividade é praticada
+        essencialmente em ambientes naturais, obtendo os seus praticantes os benefícios inerentes à
+        prática de atividades de ar livre.</string>
+    <string name="activity_ajuda_cadastro_registro_atividade_fisica_esportes">Esta atividade é uma atividade
+        física sujeita a determinados regulamentos e que geralmente visa a competição entre praticantes.</string>
+    <!-- ACTIVITY ESCOLHER VISUALIZACAO -->
+    <string name="activity_escolher_visualizacao_title">Visualizar Registros</string>
+    <string name="activity_escolher_visualizacao_tipo_visualizacao">Tipo de Visualização:</string>
+    <string name="activity_escolher_visualizacao_grafico_maximo">Gráfico de valores máximos</string>
+    <string name="activity_escolher_visualizacao_grafico_minimo">Gráfico de valores mínimos</string>
+    <string name="activity_escolher_visualizacao_grafico_periodo">Gráfico de valores por período do dia</string>
+    <string name="activity_escolher_visualizacao_lista_registros">Lista de registros de coleta</string>
+    <string name="activity_escolher_visualizacao_dados_fisiologicos">Dado Fisiológico:</string>
+    <string name="activity_escolher_visualizacao_glicemia">Glicemia</string>
+    <string name="activity_escolher_visualizacao_pressao">Pressão Arterial</string>
+    <string name="activity_escolher_visualizacao_peso">Peso</string>
+    <string name="activity_escolher_visualizacao_gasto_calorico">Gasto Calórico</string>
+    <string name="activity_escolher_visualizacao_data_inicial">Data Inicial:</string>
+    <string name="activity_escolher_visualizacao_data_final">Data Final:</string>
+    <string name="activity_escolher_visualizacao_visualizar">Visualizar</string>
+    <!-- ACTIVITY LISTA REGISTROS -->
+    <string name="activity_lista_registros_title">Lista de Dados Clínicos</string>
+>>>>>>> remotes/origin/Leonardo
 </resources>

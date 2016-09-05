@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import sdr.ufscar.dev.srdc.R;
 
-public class RegistrosActivity extends AppCompatActivity {
+public class AjudaInicioActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registros);
+        setContentView(R.layout.activity_ajuda_inicio);
     }
 }

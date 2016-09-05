@@ -18,10 +18,10 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/activity_cadastrocidadao_tv_dadosbasicos"
+                android:id="@+id/activity_cadastro_cidadao_tv_dadosbasicos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_dadosbasicos"
+                android:text="@string/activity_cadastro_cidadao_dadosbasicos"
                 android:textStyle="bold"/>
 
             <View
@@ -31,51 +31,51 @@
                 android:background="@android:color/darker_gray"/>
 
             <TextView
-                android:id="@+id/activity_cadastrocidadao_tv_nome"
+                android:id="@+id/activity_cadastro_cidadao_tv_nome"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_nome"/>
+                android:text="@string/activity_cadastro_cidadao_nome"/>
 
             <EditText
-                android:id="@+id/activity_cadastrocidadao_et_nome"
+                android:id="@+id/activity_cadastro_cidadao_et_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="50"/>
 
             <TextView
-                android:id="@+id/activity_cadastrocidadao_tv_cns"
+                android:id="@+id/activity_cadastro_cidadao_tv_cns"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_cns"/>
+                android:text="@string/activity_cadastro_cidadao_cns"/>
 
             <EditText
-                android:id="@+id/activity_cadastrocidadao_et_cns"
+                android:id="@+id/activity_cadastro_cidadao_et_cns"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="15"/>
 
             <CheckBox
-                android:id="@+id/activity_cadastrocidadao_chk_naotenhocns"
+                android:id="@+id/activity_cadastro_cidadao_chk_naotenhocns"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:text="@string/activity_cadastrocidadao_naotenhocns"
+                android:text="@string/activity_cadastro_cidadao_naotenhocns"
                 android:layout_gravity="center_horizontal"
                 android:onClick="mudarCheckbox"/>
 
             <TextView
-                android:id="@+id/activity_cadastrocidadao_tv_cpf"
+                android:id="@+id/activity_cadastro_cidadao_tv_cpf"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_cpf"
+                android:text="@string/activity_cadastro_cidadao_cpf"
                 android:enabled="false"/>
 
             <EditText
-                android:id="@+id/activity_cadastrocidadao_et_cpf"
+                android:id="@+id/activity_cadastro_cidadao_et_cpf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -83,14 +83,14 @@
                 android:maxLength="11"/>
 
             <TextView
-                android:id="@+id/activity_cadastrocidadao_tv_datanascimento"
+                android:id="@+id/activity_cadastro_cidadao_tv_datanascimento"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_datanascimento" />
+                android:text="@string/activity_cadastro_cidadao_datanascimento" />
 
             <EditText
-                android:id="@+id/activity_cadastrocidadao_et_datanascimento"
+                android:id="@+id/activity_cadastro_cidadao_et_datanascimento"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,38 +100,38 @@
             </EditText>
 
             <TextView
-                android:id="@+id/activity_cadastrocidadao_tv_cidade"
+                android:id="@+id/activity_cadastro_cidadao_tv_cidade"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_cidade" />
+                android:text="@string/activity_cadastro_cidadao_cidade" />
 
             <EditText
-                android:id="@+id/activity_cadastrocidadao_et_cidade"
+                android:id="@+id/activity_cadastro_cidadao_et_cidade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="30"/>
 
             <TextView
-                android:id="@+id/activity_cadastrocidadao_tv_estado"
+                android:id="@+id/activity_cadastro_cidadao_tv_estado"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_estado" />
+                android:text="@string/activity_cadastro_cidadao_estado" />
 
             <Spinner
-                android:id="@+id/activity_cadastrocidadao_spn_estado"
+                android:id="@+id/activity_cadastro_cidadao_spn_estado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             </Spinner>
 
             <TextView
-                android:id="@+id/activity_cadastrocidadao_tv_dadosdeseguranca"
+                android:id="@+id/activity_cadastro_cidadao_tv_dadosdeseguranca"
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_dadosdeseguranca"
+                android:text="@string/activity_cadastro_cidadao_dadosdeseguranca"
                 android:textStyle="bold"/>
 
             <View
@@ -141,30 +141,30 @@
                 android:background="@android:color/darker_gray"/>
 
             <TextView
-                android:id="@+id/activity_cadastrocidadao_tv_senha"
+                android:id="@+id/activity_cadastro_cidadao_tv_senha"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_senha"/>
+                android:text="@string/activity_cadastro_cidadao_senha"/>
 
             <EditText
-                android:id="@+id/activity_cadastrocidadao_et_senha"
+                android:id="@+id/activity_cadastro_cidadao_et_senha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:maxLength="11"/>
 
             <TextView
-                android:id="@+id/activity_cadastrocidadao_tv_infosenha"
+                android:id="@+id/activity_cadastro_cidadao_tv_infosenha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_informacaosenha"/>
+                android:text="@string/activity_cadastro_cidadao_informacaosenha"/>
 
             <Button
-                android:id="@+id/activity_cadastrocidadao_btn_cadastrar"
+                android:id="@+id/activity_cadastro_cidadao_btn_cadastrar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_cadastrocidadao_cadastrar"
+                android:text="@string/activity_cadastro_cidadao_cadastrar"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:onClick="cadastrar"/>
 

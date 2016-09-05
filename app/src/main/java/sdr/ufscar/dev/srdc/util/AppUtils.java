@@ -100,7 +100,7 @@ public class AppUtils {
      * @return string
      */
     public static String converterData(Date data){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
         return sdf.format(data);
     }
 
@@ -123,7 +123,7 @@ public class AppUtils {
      * @return string
      */
     public static Date converterData(String data){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
         Date retorno = null;
         try{
             retorno = sdf.parse(data);

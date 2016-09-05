@@ -1,9 +1,9 @@
-package sdr.ufscar.dev.srdc.model;
+package sdr.ufscar.dev.srdc.enumeration;
 
 /**
  * Created by Schick on 8/29/16.
  */
-public enum DiasEnum {
+public enum DiaEnum {
     SE("SEGUNDA"),
     TE("TERCA"),
     QA("QUARTA"),
@@ -14,7 +14,7 @@ public enum DiasEnum {
 
     private String dia;
 
-    DiasEnum(String dia){
+    DiaEnum(String dia){
         this.dia = dia;
     }
 

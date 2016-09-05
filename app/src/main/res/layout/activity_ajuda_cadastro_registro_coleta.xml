@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="sdr.ufscar.dev.srdc.activity.AjudaCadastroRegistroColetaActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_ajuda_imagem"
+                android:src="@drawable/medidor_pressao"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="@dimen/activity_ajuda_titulo"
+                android:text="@string/activity_ajuda_cadastro_registro_coleta_pressao_titulo"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/activity_ajuda_texto"
+                android:text="@string/activity_ajuda_cadastro_registro_coleta_pressao_orientacao"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_ajuda_imagem"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:src="@drawable/medidor_glicemia" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="@dimen/activity_ajuda_titulo"
+                android:text="@string/activity_ajuda_cadastro_registro_coleta_glicemia_titulo"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/activity_ajuda_texto"
+                android:text="@string/activity_ajuda_cadastro_registro_coleta_glicemia_orientacao"/>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/activity_ajuda_imagem"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:src="@drawable/medidor_peso"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="@dimen/activity_ajuda_titulo"
+                android:text="@string/activity_ajuda_cadastro_registro_coleta_peso_titulo"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/activity_ajuda_texto"
+                android:text="@string/activity_ajuda_cadastro_registro_coleta_peso_orientacao" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
