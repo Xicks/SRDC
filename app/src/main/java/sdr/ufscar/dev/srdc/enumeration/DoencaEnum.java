@@ -1,4 +1,4 @@
-package sdr.ufscar.dev.srdc.model;
+package sdr.ufscar.dev.srdc.enumeration;
 
 /**
  * Created by Schick on 8/24/16.

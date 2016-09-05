@@ -2,15 +2,15 @@ package sdr.ufscar.dev.srdc.dao;
 
 import java.util.List;
 
-import sdr.ufscar.dev.srdc.model.Registro;
+import sdr.ufscar.dev.srdc.model.RegistroColeta;
 
 /**
  * Created by Schick on 8/23/16.
  */
-public class RegistroDAO extends GenericDAO<Registro>{
+public class RegistroColetaDAO extends GenericDAO<RegistroColeta>{
 
     @Override
-    public Boolean insert(Registro registro) {
+    public Boolean insert(RegistroColeta registroColeta) {
         //TODO
         return Boolean.FALSE;
     }
@@ -22,18 +22,18 @@ public class RegistroDAO extends GenericDAO<Registro>{
     }
 
     @Override
-    public Boolean update(Registro registro) {
+    public Boolean update(RegistroColeta registroColeta) {
         //TODO
         return Boolean.FALSE;
     }
 
     @Override
-    public Registro select(Integer idRegistro) {
+    public RegistroColeta select(Integer idRegistro) {
         //TODO
         return null;
     }
 
-    public List<Registro> selectPorExemplo(Registro registro) {
+    public List<RegistroColeta> selectPorExemplo(RegistroColeta registroColeta) {
         //TODO
         return null;
     }
