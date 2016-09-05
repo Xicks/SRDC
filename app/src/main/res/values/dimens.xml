@@ -4,6 +4,9 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="title">20dp</dimen>
-    <dimen name="activity_inicio_title">40dp</dimen>
-    <dimen name="activity_inicio_text">20dp</dimen>
+    <dimen name="activity_inicio_titulo">40dp</dimen>
+    <dimen name="activity_inicio_texto">20dp</dimen>
+    <dimen name="activity_ajuda_titulo">20dp</dimen>
+    <dimen name="activity_ajuda_texto">18dp</dimen>
+    <dimen name="activity_ajuda_imagem">85dp</dimen>
 </resources>

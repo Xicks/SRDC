@@ -1,9 +1,12 @@
 package sdr.ufscar.dev.srdc.activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -20,7 +23,7 @@ import sdr.ufscar.dev.srdc.facade.RegistroAtividadeFisicaFacade;
 import sdr.ufscar.dev.srdc.model.DadosClinicos;
 import sdr.ufscar.dev.srdc.model.RegistroAtividadeFisica;
 
-public class CadastroRegistroAtividadeFisica extends AppCompatActivity {
+public class CadastroRegistroAtividadeFisicaActivity extends AppCompatActivity {
 
     private Spinner mSPNDias;
     private EditText mETTempo;
@@ -144,5 +147,26 @@ public class CadastroRegistroAtividadeFisica extends AppCompatActivity {
             retorno = false;
         }
         return retorno;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_cadastro_registro_atividade_fisica,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent i;
+        switch(item.getItemId()) {
+            case R.id.menu_cadastro_registro_atividade_fisica_ajuda:
+                i = new Intent(getApplicationContext(),
+                        AjudaCadastroRegistroAtividadeFisicaActivity.class);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        startActivity(i);
+        return true;
     }
 }

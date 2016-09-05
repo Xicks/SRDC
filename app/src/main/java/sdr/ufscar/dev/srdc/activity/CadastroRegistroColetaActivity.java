@@ -1,10 +1,12 @@
 package sdr.ufscar.dev.srdc.activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -12,7 +14,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import sdr.ufscar.dev.srdc.R;
 import sdr.ufscar.dev.srdc.application.SRDCApplication;
@@ -37,7 +38,6 @@ public class CadastroRegistroColetaActivity extends AppCompatActivity {
     private DadosClinicos mDadosClinicos;
     private Cidadao mCidadao;
     private ArrayList<DoencaEnum> mDoencas;
-    private boolean mResposta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,11 +112,6 @@ public class CadastroRegistroColetaActivity extends AppCompatActivity {
         mSPNPressaoDiastolica.setAdapter(adapter);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_registro_coleta, menu);
-        return true;
-    }
 
     public void registrar(View v) {
         if (isFormularioValido()) {
@@ -230,6 +225,27 @@ public class CadastroRegistroColetaActivity extends AppCompatActivity {
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_cadastro_registro_coleta,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent i;
+        switch(item.getItemId()) {
+            case R.id.menu_cadastro_registro_coleta_ajuda:
+                i = new Intent(getApplicationContext(),
+                        AjudaCadastroRegistroColetaActivity.class);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        startActivity(i);
+        return true;
     }
 
 }

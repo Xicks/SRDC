@@ -51,7 +51,7 @@ public class ListaRegistros extends AppCompatActivity {
                 new RegistroColetaFacade().pegarRegistroColetaNoIntervalo(
                         mDadosClinicos.getIdDadosClinicos(),dataInicial,dataFinal);
 
-        mTVRegistros.setText("Mostrando: " + registros.size() + " registros!");
+        mTVRegistros.setText("Quantidade: " + registros.size() + " registros.");
         mRVListaRegistros.setAdapter(new MyRecyclerAdapter(registros));
     }
 

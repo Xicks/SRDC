@@ -16,7 +16,7 @@
             android:label="@string/empty" />
         <activity
             android:name=".activity.CadastroCidadaoActivity"
-            android:label="@string/activity_cadastro_cidadao_tituloactivity"
+            android:label="@string/activity_cadastro_cidadao_title"
             android:noHistory="true" />
         <activity
             android:name=".activity.MainActivity"
@@ -30,18 +30,34 @@
         </activity>
         <activity
             android:name=".activity.CadastroDadosClinicosActivity"
-            android:label="@string/activity_cadastro_dados_clinicos_tituloactivity" />
-        <activity android:name=".activity.InicioActivity" />
-        <activity android:name=".activity.CadastroRegistroColetaActivity" />
-        <activity android:name=".activity.CadastroRegistroAtividadeFisica" />
+            android:label="@string/activity_cadastro_dados_clinicos_title" />
+        <activity
+            android:name=".activity.InicioActivity"
+            android:label="@string/empty" />
+        <activity android:name=".activity.CadastroRegistroColetaActivity"
+            android:label="@string/activity_cadastro_registro_coleta_title"/>
+        <activity
+            android:name=".activity.CadastroRegistroAtividadeFisicaActivity"
+            android:label="@string/activity_cadastro_registro_atividade_fisica_title" />
         <activity
             android:name=".activity.GraficoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
-        <activity android:name=".activity.EscolherVisualizacaoActivity" />
-        <activity android:name=".activity.ListaRegistros"></activity>
-        <activity android:name=".activity.HelpTelaInicial" />
-        <activity android:name=".activity.HelpTelaAtividades" />
-        <activity android:name=".activity.HelpTelaSensores"></activity>
+        <activity android:name=".activity.EscolherVisualizacaoActivity"
+            android:label="@string/activity_escolher_visualizacao_title"/>
+        <activity android:name=".activity.ListaRegistros"
+            android:label="@string/activity_lista_registros_title"
+            android:noHistory="true"/>
+        <activity
+            android:name=".activity.AjudaCadastroRegistroAtividadeFisicaActivity"
+            android:label="@string/activity_ajuda_cadastro_registro_atividade_fisica_title"
+            android:noHistory="true"/>
+        <activity
+            android:name=".activity.AjudaInicioActivity"
+            android:label="@string/activity_ajuda_inicio_title"
+            android:noHistory="true"/>
+        <activity android:name=".activity.AjudaCadastroRegistroColetaActivity"
+            android:label="@string/activity_ajuda_cadastro_registro_coleta_title"
+            android:noHistory="true"/>
     </application>
 
 </manifest>

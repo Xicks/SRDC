@@ -69,10 +69,13 @@ public class InicioActivity extends AppCompatActivity {
                 logout();
                 return true;
             case R.id.menu_inicio_cadastro_registro_atividade_fisica:
-                i = new Intent(getApplicationContext(),CadastroRegistroAtividadeFisica.class);
+                i = new Intent(getApplicationContext(),CadastroRegistroAtividadeFisicaActivity.class);
                 break;
             case R.id.menu_inicio_graficos:
                 i = new Intent(getApplicationContext(),EscolherVisualizacaoActivity.class);
+                break;
+            case R.id.menu_inicio_ajuda:
+                i = new Intent(getApplicationContext(),AjudaInicioActivity.class);
                 break;
             default:
                 return super.onOptionsItemSelected(item);

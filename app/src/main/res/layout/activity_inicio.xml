@@ -24,18 +24,18 @@
                 android:id="@+id/activity_inicio_tv_bemvindo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/activity_inicio_title"
+                android:textSize="@dimen/activity_inicio_titulo"
                 android:textAlignment="center"/>
             <TextView
                 android:id="@+id/activity_inicio_tv_informacoes_coleta"
                 android:layout_width="match_parent"
-                android:textSize="@dimen/activity_inicio_text"
+                android:textSize="@dimen/activity_inicio_texto"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"/>
             <TextView
                 android:id="@+id/activity_inicio_tv_observacoes"
                 android:layout_width="match_parent"
-                android:textSize="@dimen/activity_inicio_text"
+                android:textSize="@dimen/activity_inicio_texto"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"/>
 
@@ -53,7 +53,7 @@
         android:id="@+id/activity_inicio_tv_informacoes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/activity_inicio_text"
+        android:textSize="@dimen/activity_inicio_texto"
         android:text="@string/activity_inicio_informacao"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/activity_inicio_fab_registro"

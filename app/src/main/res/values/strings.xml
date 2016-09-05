@@ -9,6 +9,9 @@
     <string name="menu_logout">Sair</string>
     <string name="menu_cadastro_registro_atividade_fisica">Registro de Atividade Física</string>
     <string name="menu_graficos">Gráficos</string>
+    <string name="menu_alterar_dados">Alterar Dados</string>
+    <string name="menu_ajuda">Ajuda</string>
+    <string name="menu_cadastro_registro_coleta">Registro de Coleta</string>
     <!-- TOAST -->
     <string name="activity_login_cpf_cns_invalido">CPF/CNS ou senha inválido!</string>
     <string name="activity_cadastro_dados_clinicos_horarios_excedidos">Número de horários excedido"</string>
@@ -16,8 +19,8 @@
         Escolha um tipo de atividade</string>
     <!-- REGISTRO ROW -->
     <string name="registro_row_data_registro">DATA DE REGISTRO:&#160;</string>
-    <string name="registro_row_pressao_sistolica">P. SISTÓLICA:&#160;</string>
-    <string name="registro_row_pressao_diastolica">P. DIASTÓLICA:&#160;</string>
+    <string name="registro_row_pressao_sistolica">P. SIS.:&#160;</string>
+    <string name="registro_row_pressao_diastolica">P. DIAS.:&#160;</string>
     <string name="registro_row_glicemia">GLICEMIA:&#160;</string>
     <string name="registro_row_peso">PESO:&#160;</string>
     <string name="registro_row_gasto_calorico">GASTO CALÓRICO:&#160;</string>
@@ -29,7 +32,7 @@
     <string name="activity_login_naocadastrado">Não cadastrado?</string>
     <string name="activity_login_cadastrarcidadao">Cadastrar Cidadão</string>
     <!-- ACTIVITY CADASTRO CIDADAO -->
-    <string name="activity_cadastro_cidadao_tituloactivity">Cadastrar Cidadão</string>
+    <string name="activity_cadastro_cidadao_title">Cadastrar Cidadão</string>
     <string name="activity_cadastro_cidadao_dadosbasicos">Dados Básicos</string>
     <string name="activity_cadastro_cidadao_nome">Nome:</string>
     <string name="activity_cadastro_cidadao_cpf">Cadastro de Pessoa Física (CPF):</string>
@@ -73,7 +76,7 @@
     <string name="activity_cadastro_cidadao_cadastrar">Cadastrar</string>
 
     <!-- ACTIVITY CADASTRO DADOS CLINICOS-->
-    <string name="activity_cadastro_dados_clinicos_tituloactivity">Cadastro de Dados Clínicos</string>
+    <string name="activity_cadastro_dados_clinicos_title">Cadastro de Dados Clínicos</string>
     <string name="activity_cadastro_dados_clinicos_dadosdoprofissional">Dados do Profissional de Saúde</string>
     <string name="activity_cadastro_dados_clinicos_cnsprofissional">CNS do Profissional de Saúde:</string>
     <string name="activity_cadastro_dados_clinicos_cnes">Cadastro Nacional de Estabelecimentos de Saúde (CNES):</string>
@@ -126,15 +129,39 @@
     <string name="activity_cadastro_dados_clinicos_enviarnotificacao">Enviar notificação nos horários de coleta?</string>
     <!-- ACTIVITY INICIO -->
     <string name="activity_inicio_informacao">Utilize o botão ao lado para realizar um novo registro de coleta</string>
+    <!-- ACTIVITY AJUDA INICIO -->
+    <string name="activity_ajuda_inicio_title">Ajuda</string>
+    <string name="activity_ajuda_inicio_registro_coleta">Nesta tela você poderá realizar os
+        lançamentos dos seus registros de coleta</string>
+    <string name="activity_ajuda_inicio_registro_atividade_fisica">Nesta tela você poderá realizar
+        os lançamentos de suas atividades físicas, a fim de se controlar suas periodicidade,
+        tempo e intensidade das atividades."</string>
+    <string name="activity_ajuda_inicio_graficos">Nesta tela você poderá visualizar gráficos que apresentam
+        o andamento dos seus dados fisiológicos.</string>
+    <string name="activity_ajuda_inicio_alterar_dados">Nesta tela você poderá alterar dados
+        pessoais, clínicos e senha</string>
+    <string name="activity_ajuda_inicio_logout">Sai da aplicação</string>
     <!-- ACTIVITY CADASTRO REGISTRO COLETA-->
-    <string name="activity_cadastro_registro_coleta_tituloactivity">Novo Registro</string>
+    <string name="activity_cadastro_registro_coleta_title">Registro de Coleta</string>
     <string name="activity_cadastro_registro_coleta_pressao_sistolica">Pressão Sistólica (mmHg):</string>
     <string name="activity_cadastro_registro_coleta_pressao_diastolica">Pressão Diastólica (mmHg):</string>
     <string name="activity_cadastro_registro_coleta_glicemia">Glicemia (mg/dl):</string>
     <string name="activity_cadastro_registro_coleta_peso">Peso (Kg):</string>
     <string name="activity_cadastro_registro_coleta_gasto_calorico">Gasto Calórico (Kcal):</string>
-    <string name="activity_cadastro_registro_coleta_registrar">Registrar</string>
+    <string name="activity_cadastro_registro_coleta_registrar">Registrar</string>\
+    <!-- ACTIVITY AJUDA CADASTRO REGISTRO COLETA -->
+    <string name="activity_ajuda_cadastro_registro_coleta_title">Ajuda</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_pressao_titulo">Medindo a Pressão Arterial</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_pressao_orientacao">Na imagem acima
+        apresentam-se a pressão máxima (em vermelho, 13.6) e a pressão mínima (em azul, 8.8).</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_peso_titulo">Medindo o Peso</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_peso_orientacao">Na imagem acima apresenta-se
+        o peso de uma pessoa ao subir na balança (por exemplo, 51 kg).</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_glicemia_titulo">Medindo a Glicemia</string>
+    <string name="activity_ajuda_cadastro_registro_coleta_glicemia_orientacao">Na imagem acima
+        apresenta-se o nível de glicemia em uma amostra sanguínea (por exemplo, 83).</string>
     <!-- ACTIVITY CADASTRO REGISTRO ATIVIDADE FISICA -->
+    <string name="activity_cadastro_registro_atividade_fisica_title">Registro de Atividade Física</string>
     <string name="activity_cadastro_registro_atividade_fisica_dias">Esta semana, pratiquei atividade fisica:</string>
     <string-array name="activity_cadastro_registro_atividade_fisica_dias">
         <item>1 Dia</item>
@@ -147,14 +174,26 @@
     </string-array>
     <string name="activity_cadastro_registro_atividade_fisica_tempo">Tempo aproximado total em horas:</string>
     <string name="activity_cadastro_registro_atividade_fisica_tipo_atividade">Tipo(s) de atividade:</string>
-    <string name="activity_cadastro_registro_atividade_fisica_aerobico">Aeróbicos (Caminhada,Dança,Bicicleta...)</string>
+    <string name="activity_cadastro_registro_atividade_fisica_aerobico">Aeróbicos (Caminhada, Dança, Bicicleta...)</string>
     <string name="activity_cadastro_registro_atividade_fisica_musculacao">Musculação</string>
     <string name="activity_cadastro_registro_atividade_fisica_atividades_alongamento">
         Atividades de Alongamento (Yoga, Pilates, etc)</string>
     <string name="activity_cadastro_registro_atividade_fisica_esportes">
         Esportes (Natação, Judô, Boxe, Tênis, etc)</string>
     <string name="activity_cadastro_registro_atividade_fisica_registrar">Registrar</string>
+    <!-- ACTIVITY AJUDA CADASTRO REGISTRO ATIVIDADE FISICA -->
+    <string name="activity_ajuda_cadastro_registro_atividade_fisica_title">Ajuda</string>
+    <string name="activity_ajuda_cadastro_registro_atividade_fisica_alongamento">Esta atividade é
+        um tipo de exercício físico orientado para relaxamento, manutenção ou melhora da flexibilidade."</string>
+    <string name="activity_ajuda_cadastro_registro_atividade_fisica_musculacao">Esta atividade é uma forma
+        de exercício contrar resistência para o treinamento e desenvolvimento dos músculos esqueléticos.</string>
+    <string name="activity_ajuda_cadastro_registro_atividade_fisica_aerobico">Esta atividade é praticada
+        essencialmente em ambientes naturais, obtendo os seus praticantes os benefícios inerentes à
+        prática de atividades de ar livre.</string>
+    <string name="activity_ajuda_cadastro_registro_atividade_fisica_esportes">Esta atividade é uma atividade
+        física sujeita a determinados regulamentos e que geralmente visa a competição entre praticantes.</string>
     <!-- ACTIVITY ESCOLHER VISUALIZACAO -->
+    <string name="activity_escolher_visualizacao_title">Visualizar Registros</string>
     <string name="activity_escolher_visualizacao_tipo_visualizacao">Tipo de Visualização:</string>
     <string name="activity_escolher_visualizacao_grafico_maximo">Gráfico de valores máximos</string>
     <string name="activity_escolher_visualizacao_grafico_minimo">Gráfico de valores mínimos</string>
@@ -168,4 +207,6 @@
     <string name="activity_escolher_visualizacao_data_inicial">Data Inicial:</string>
     <string name="activity_escolher_visualizacao_data_final">Data Final:</string>
     <string name="activity_escolher_visualizacao_visualizar">Visualizar</string>
+    <!-- ACTIVITY LISTA REGISTROS -->
+    <string name="activity_lista_registros_title">Lista de Dados Clínicos</string>
 </resources>
