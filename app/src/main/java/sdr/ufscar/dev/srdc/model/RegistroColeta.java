@@ -18,20 +18,29 @@ public class RegistroColeta {
     Glicemia: mg/dL
      */
 
-    private Integer idRegistro;
+    private Integer idRegistroColeta;
+    private Integer idDadosClinicos;
     private Date dataColeta;
-    private Integer pressao_diastolica;
-    private Integer pressao_sistolica;
+    private Integer pressaoDiastolica;
+    private Integer pressaoSistolica;
     private Integer peso;
-    private Integer gasto_calorico;
+    private Integer gastoCalorico;
     private Integer glicemia;
 
-    public Integer getIdRegistro() {
-        return idRegistro;
+    public Integer getIdRegistroColeta() {
+        return idRegistroColeta;
     }
 
-    public void setIdRegistro(Integer idRegistro) {
-        this.idRegistro = idRegistro;
+    public void setIdRegistroColeta(Integer idRegistroColeta) {
+        this.idRegistroColeta = idRegistroColeta;
+    }
+
+    public Integer getIdDadosClinicos() {
+        return idDadosClinicos;
+    }
+
+    public void setIdDadosClinicos(Integer idDadosClinicos) {
+        this.idDadosClinicos = idDadosClinicos;
     }
 
     public Date getDataColeta() {
@@ -42,20 +51,20 @@ public class RegistroColeta {
         this.dataColeta = dataColeta;
     }
 
-    public Integer getPressao_diastolica() {
-        return pressao_diastolica;
+    public Integer getPressaoDiastolica() {
+        return pressaoDiastolica;
     }
 
-    public void setPressao_diastolica(Integer pressao_diastolica) {
-        this.pressao_diastolica = pressao_diastolica;
+    public void setPressaoDiastolica(Integer pressaoDiastolica) {
+        this.pressaoDiastolica = pressaoDiastolica;
     }
 
-    public Integer getPressao_sistolica() {
-        return pressao_sistolica;
+    public Integer getPressaoSistolica() {
+        return pressaoSistolica;
     }
 
-    public void setPressao_sistolica(Integer pressao_sistolica) {
-        this.pressao_sistolica = pressao_sistolica;
+    public void setPressaoSistolica(Integer pressaoSistolica) {
+        this.pressaoSistolica = pressaoSistolica;
     }
 
     public Integer getPeso() {
@@ -66,12 +75,12 @@ public class RegistroColeta {
         this.peso = peso;
     }
 
-    public Integer getGasto_calorico() {
-        return gasto_calorico;
+    public Integer getGastoCalorico() {
+        return gastoCalorico;
     }
 
-    public void setGasto_calorico(Integer gasto_calorico) {
-        this.gasto_calorico = gasto_calorico;
+    public void setGastoCalorico(Integer gastoCalorico) {
+        this.gastoCalorico = gastoCalorico;
     }
 
     public Integer getGlicemia() {
