@@ -31,12 +31,11 @@
         <activity
             android:name=".activity.CadastroDadosClinicosActivity"
 <<<<<<< HEAD
-            android:label="@string/activity_cadastrodadosclinicos_tituloactivity" />
-        <activity android:name=".activity.HelpTelaInicial" />
-        <activity android:name=".activity.HelpTelaAtividades" />
-        <activity android:name=".activity.HelpTelaSensores"></activity>
-=======
+            android:label="@string/activity_cadastrodadosclinicos_tituloactivity" /><![CDATA[
+
+        =======
             android:label="@string/activity_cadastro_dados_clinicos_title" />
+        ]]>
         <activity
             android:name=".activity.InicioActivity"
             android:label="@string/empty" />
