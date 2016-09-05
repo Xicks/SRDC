@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:text="Esta atividade é praticada essencialmente em ambientes naturais, obtendo os seus praticantes os benefícios inerentes à prática de actividades de ar livre." />
+        android:text="Esta atividade é praticada essencialmente em ambientes naturais, obtendo os seus praticantes os benefícios inerentes à prática de atividades de ar livre." />
 
 
     <ImageView

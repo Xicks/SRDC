@@ -34,7 +34,8 @@
             android:name=".activity.CadastroDadosClinicosActivity"
             android:label="@string/activity_cadastrodadosclinicos_tituloactivity" />
         <activity android:name=".activity.HelpTelaInicial" />
-        <activity android:name=".activity.HelpTelaAtividades"></activity>
+        <activity android:name=".activity.HelpTelaAtividades" />
+        <activity android:name=".activity.HelpTelaSensores"></activity>
     </application>
 
 </manifest>
