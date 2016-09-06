@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
+import sdr.ufscar.dev.srdc.database.DatabaseHelper;
 import sdr.ufscar.dev.srdc.model.DadosClinicos;
 import sdr.ufscar.dev.srdc.enumeration.DoencaEnum;
 import sdr.ufscar.dev.srdc.util.AppUtils;
@@ -29,6 +30,7 @@ public class DadosClinicosDAO implements GenericDAO<DadosClinicos>{
         String data = AppUtils.converterData(dadosClinicos.getDataRegistro());
         cv.put("data_registro",data);
         cv.put("altura",dadosClinicos.getAltura());
+        cv.put("peso",dadosClinicos.getPeso());
         cv.put("dias_coleta",dadosClinicos.getDiasColeta());
 
         ArrayList<DoencaEnum> doencas = dadosClinicos.getDoencas();
@@ -47,11 +49,13 @@ public class DadosClinicosDAO implements GenericDAO<DadosClinicos>{
         if(id != -1) {
             dadosClinicos.setIdDadosClinicos((int) id);
             // Adiciona horas de coleta
-            for(Integer horaColeta: dadosClinicos.getHorasColeta()) {
-                cv = new ContentValues();
-                cv.put("hora_coleta_id_dados_clinicos",(int) id);
-                cv.put("hora",horaColeta);
-                db.insert("hora_coleta",null,cv);
+            if(dadosClinicos.getHorasColeta() != null) {
+                for (Integer horaColeta : dadosClinicos.getHorasColeta()) {
+                    cv = new ContentValues();
+                    cv.put("hora_coleta_id_dados_clinicos", (int) id);
+                    cv.put("hora", horaColeta);
+                    db.insert("hora_coleta", null, cv);
+                }
             }
             retorno = Boolean.TRUE;
         }
@@ -96,6 +100,7 @@ public class DadosClinicosDAO implements GenericDAO<DadosClinicos>{
         String data = AppUtils.converterData(dadosClinicos.getDataRegistro());
         cv.put("data_registro",data);
         cv.put("altura",dadosClinicos.getAltura());
+        cv.put("peso",dadosClinicos.getPeso());
         cv.put("dias_coleta",dadosClinicos.getDiasColeta());
 
         ArrayList<DoencaEnum> doencas = dadosClinicos.getDoencas();
@@ -123,11 +128,13 @@ public class DadosClinicosDAO implements GenericDAO<DadosClinicos>{
         db.delete("hora_coleta","coleta_hora_id_dados_clinicos = ?",
                 new String[] {dadosClinicos.getIdDadosClinicos().toString()});
         // Adiciona as novas horas de coleta
-        for(Integer horaColeta: dadosClinicos.getHorasColeta()) {
-            cv = new ContentValues();
-            cv.put("hora_coleta_id_dados_clinicos", dadosClinicos.getIdDadosClinicos());
-            cv.put("hora",horaColeta);
-            db.insert("hora_coleta",null,cv);
+        if(dadosClinicos.getHorasColeta() != null) {
+            for (Integer horaColeta : dadosClinicos.getHorasColeta()) {
+                cv = new ContentValues();
+                cv.put("hora_coleta_id_dados_clinicos", dadosClinicos.getIdDadosClinicos());
+                cv.put("hora", horaColeta);
+                db.insert("hora_coleta", null, cv);
+            }
         }
         db.close();
         return i != 0;
@@ -151,20 +158,21 @@ public class DadosClinicosDAO implements GenericDAO<DadosClinicos>{
             dadosClinicos.setCnes(c.getString(2));
             dadosClinicos.setDataRegistro(AppUtils.converterData(c.getString(3)));
             dadosClinicos.setAltura(c.getInt(4));
+            dadosClinicos.setPeso(c.getInt(5));
 
             ArrayList<DoencaEnum> doencas = new ArrayList<>();
-            if(c.getInt(5) == 1)
-                doencas.add(DoencaEnum.I10_15_DOENÇAS_HIPERTENSIVAS);
             if(c.getInt(6) == 1)
-                doencas.add(DoencaEnum.E10_E14_DIABETES_MELLITUS);
+                doencas.add(DoencaEnum.I10_15_DOENÇAS_HIPERTENSIVAS);
             if(c.getInt(7) == 1)
+                doencas.add(DoencaEnum.E10_E14_DIABETES_MELLITUS);
+            if(c.getInt(8) == 1)
                 doencas.add(DoencaEnum.E65_E68_OBESIDADE_HIPERALIMENTAÇÃO);
 
             dadosClinicos.setDoencas(doencas);
 
-            dadosClinicos.setObservacoes(c.getString(8));
-            dadosClinicos.setDiasColeta(c.getString(9));
-            dadosClinicos.setEnviarNotificacao(c.getInt(10) == 1);
+            dadosClinicos.setObservacoes(c.getString(9));
+            dadosClinicos.setDiasColeta(c.getString(10));
+            dadosClinicos.setEnviarNotificacao(c.getInt(11) == 1);
 
             c.close();
 

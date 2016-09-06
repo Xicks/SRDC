@@ -30,8 +30,7 @@ public class UsuarioFacade {
         if(usuario.getUsername() == null || usuario.getSenha() == null) {
             throw new IllegalArgumentException("Dados do Usuario invalido");
         }
-        String senha = AppUtils.digest(usuario.getSenha());
-        usuario.setSenha(senha);
+        usuario.setSenha(AppUtils.digest(usuario.getSenha()));
         try {
             return usuarioDAO.insert(usuario);
         }catch(CadastroDuplicadoException e) {
@@ -61,5 +60,38 @@ public class UsuarioFacade {
         } else {
             return Boolean.FALSE;
         }
+    }
+
+    public Usuario pegarUsuarioPorEmail(String email) {
+        return usuarioDAO.selectPorEmail(email);
+    }
+
+    public Boolean alterarSenha(Usuario usuario) {
+        if(usuario.getIdUsuario() == null || usuario.getSenha() == null) {
+            throw new IllegalArgumentException("Dados do Usuario invalido");
+        }
+        Usuario u = usuarioDAO.select(usuario.getIdUsuario());
+        if(u == null) {
+            throw new IllegalArgumentException("Dados do Usuario invalido");
+        }
+
+        u.setSenha(AppUtils.digest(usuario.getSenha()));
+        return usuarioDAO.update(u);
+    }
+
+    /**
+     * Busca um usuário pelo email e altera a senha para uma senha aleatória
+     * @param email
+     * @return senha aleatória gerada ou null que o usuário não existe
+     */
+    public String trocarEsquecerSenha(String email){
+        Usuario u = usuarioDAO.selectPorEmail(email);
+        if(u != null) {
+            String novaSenha = AppUtils.gerarSenhaAleatoria();
+            u.setSenha(AppUtils.digest(novaSenha));
+            usuarioDAO.update(u);
+            return novaSenha;
+        }
+        return null;
     }
 }

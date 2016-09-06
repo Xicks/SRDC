@@ -38,6 +38,7 @@ public class CadastroCidadaoActivity extends AppCompatActivity {
     private EditText mETCidade;
     private EditText mETDataNascimento;
     private CheckBox mCHKNaoTenhoCNS;
+    private EditText mETEmail;
     private EditText mETSenha;
 
     private DatePickerDialog mDPDialog;
@@ -57,6 +58,7 @@ public class CadastroCidadaoActivity extends AppCompatActivity {
         mTVCns = (TextView) findViewById(R.id.activity_cadastro_cidadao_tv_cns);
         mSPNEstados = (Spinner) findViewById(R.id.activity_cadastro_cidadao_spn_estado);
         mETDataNascimento = (EditText) findViewById(R.id.activity_cadastro_cidadao_et_datanascimento);
+        mETEmail = (EditText) findViewById(R.id.activity_cadastro_cidadao_et_email);
 
         mDataNascimento = Calendar.getInstance();
         mDPDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener(){
@@ -140,7 +142,7 @@ public class CadastroCidadaoActivity extends AppCompatActivity {
                 if (Boolean.TRUE.equals(sucesso)) {
                     new AlertDialog.Builder(this)
                             .setTitle("Cadastro Realizado")
-                            .setMessage("Seu cadastro foi realizado com sucesso!\n Utilize seu CPF/CNS" +
+                            .setMessage("Seu cadastro foi realizado com sucesso!\nUtilize seu CPF/CNS" +
                                     " e senha para entrar no sistema.")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
@@ -207,8 +209,20 @@ public class CadastroCidadaoActivity extends AppCompatActivity {
         }
 
         if(!Boolean.TRUE.equals(AppUtils.isSenhaValida(mETSenha.getText().toString()))){
-            mETSenha.setError("Senha Inválida. (Senhas devem conter de 6 a 11 dígitos)");
+            mETSenha.setError("Senha Inválida (Senhas devem conter de 6 a 11 dígitos)");
             retorno = false;
+        }
+        String email = mETEmail.getText().toString();
+        if(!Boolean.TRUE.equals(AppUtils.isEmailValido(email))) {
+            mETEmail.setError("Email Inválido");
+            retorno = false;
+            //Evita busca no banco caso formulário já contiver erros
+        } else if(retorno){
+            Usuario u = new UsuarioFacade().pegarUsuarioPorEmail(email);
+            if(u != null) {
+                mETEmail.setError("Email já cadastrado");
+                retorno = false;
+            }
         }
         return retorno;
     }

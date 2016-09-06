@@ -2,8 +2,8 @@ package sdr.ufscar.dev.srdc.dao;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
+import sdr.ufscar.dev.srdc.database.DatabaseHelper;
 import sdr.ufscar.dev.srdc.enumeration.AtividadeFisicaEnum;
 import sdr.ufscar.dev.srdc.model.RegistroAtividadeFisica;
 import sdr.ufscar.dev.srdc.util.AppUtils;

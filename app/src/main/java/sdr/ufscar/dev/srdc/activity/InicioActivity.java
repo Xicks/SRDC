@@ -44,12 +44,16 @@ public class InicioActivity extends AppCompatActivity {
         mTVBemvindo.setText("Bem vindo " + cidadao.getNome());
         StringBuilder sb = new StringBuilder();
         sb.append("Coletas devem ser realizadas:\n");
-        for(DiaEnum dias: dadosClinicos.getDiasColetaEnum()){
-            sb.append(dias.getDia() + " ");
+        if(dadosClinicos.getDiasColetaEnum() != null) {
+            for (DiaEnum dias : dadosClinicos.getDiasColetaEnum()) {
+                sb.append(dias.getDia() + " ");
+            }
         }
         sb.append("\nàs\n");
-        for(Integer hora: dadosClinicos.getHorasColeta()){
-            sb.append(hora + ":00\n");
+        if(dadosClinicos.getHorasColeta() != null) {
+            for (Integer hora : dadosClinicos.getHorasColeta()) {
+                sb.append(hora + ":00\n");
+            }
         }
         mTVInformacoesColeta.setText(new String(sb));
         mTVObservacoes.setText(dadosClinicos.getObservacoes());

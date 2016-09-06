@@ -2,13 +2,9 @@ package sdr.ufscar.dev.srdc.dao;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
-import android.provider.ContactsContract;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import sdr.ufscar.dev.srdc.database.DatabaseHelper;
 import sdr.ufscar.dev.srdc.model.Cidadao;
 import sdr.ufscar.dev.srdc.model.DadosClinicos;
 import sdr.ufscar.dev.srdc.util.AppUtils;

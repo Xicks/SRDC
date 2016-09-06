@@ -202,6 +202,13 @@ public class CadastroRegistroColetaActivity extends AppCompatActivity {
                 return false;
             }
         }
+        if(!mETPeso.getText().toString().trim().isEmpty()) {
+            Integer peso = Integer.parseInt(mETPeso.getText().toString());
+            if(peso < 30 || peso > 250 ) {
+                gerarAlerta("Cadastro de peso","Os valores de Peso devem ficar entre 30 e 250");
+                return false;
+            }
+        }
 
         String glicemia = mETGlicemia.getText().toString();
         if(!glicemia.trim().isEmpty()) {
