@@ -1,6 +1,7 @@
 package sdr.ufscar.dev.srdc.activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class CadastroDadosClinicosActivity extends AppCompatActivity {
     private EditText mETObservacoes;
     private TextView mTVDoencas;
     private Spinner mSPNAltura;
+    private EditText mETPeso;
     private CheckBox mCHKI1015;
     private CheckBox mCHKE1014;
     private CheckBox mCHKE6568;
@@ -63,6 +65,7 @@ public class CadastroDadosClinicosActivity extends AppCompatActivity {
         mETCnes = (EditText) findViewById(R.id.activity_cadastro_dados_clinicos_et_cnes);
         mTVDoencas = (TextView) findViewById(R.id.activity_cadastro_dados_clinicos_tv_doencas);
         mSPNAltura = (Spinner) findViewById(R.id.activity_cadastro_dados_clinicos_spn_altura);
+        mETPeso = (EditText) findViewById(R.id.activity_cadastro_dados_clinicos_et_peso);
         ArrayList<String> alturas = new ArrayList<>();
         for(int i = 110; i < 250; i++){
             alturas.add(i + "");
@@ -168,7 +171,8 @@ public class CadastroDadosClinicosActivity extends AppCompatActivity {
                         .setPositiveButton(android.R.string.yes,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        finish();
+                                        Intent i = new Intent(getApplicationContext(),InicioActivity.class);
+                                        startActivity(i);
                                     }
                                 }).setIcon(android.R.drawable.ic_dialog_info).show();
             } else {
@@ -211,6 +215,16 @@ public class CadastroDadosClinicosActivity extends AppCompatActivity {
         if(!mCHKE1014.isChecked() && !mCHKE6568.isChecked() && !mCHKI1015.isChecked()) {
             mTVDoencas.setError("Escolha uma doença");
             retorno = false;
+        }
+        if(mETPeso.getText().toString().trim().isEmpty()) {
+            mETPeso.setError("Peso Inválido");
+            retorno = false;
+        } else {
+            Integer peso = Integer.parseInt(mETPeso.getText().toString());
+            if(peso < 30 || peso > 250 ) {
+                mETPeso.setError("Peso Inválido");
+                retorno = false;
+            }
         }
         if(!mHorariosSpinner.isEmpty() && mDias.isEmpty()) {
             new AlertDialog.Builder(this).setTitle("Dias de Coleta não definidos")

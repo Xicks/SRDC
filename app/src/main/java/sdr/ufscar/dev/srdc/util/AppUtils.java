@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Classe contendo métodos úteis
@@ -132,5 +133,23 @@ public class AppUtils {
         } finally {
             return retorno;
         }
+    }
+
+    /**
+     * Válida o email
+     * @return se o email eh valido
+     */
+    public static Boolean isEmailValido(String email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    /**
+     * Gerar uma senha de 8 dígitos aleatoria
+     * @return string
+     */
+    public static String gerarSenhaAleatoria(){
+        UUID uuid = UUID.randomUUID();
+        String myRandom = uuid.toString();
+        return (myRandom.substring(0,8));
     }
 }

@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 
+import sdr.ufscar.dev.srdc.database.DatabaseHelper;
 import sdr.ufscar.dev.srdc.exception.CadastroDuplicadoException;
 import sdr.ufscar.dev.srdc.model.Usuario;
 
@@ -21,14 +22,15 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
      */
     @Override
     public Boolean insert(Usuario usuario) {
-        SQLiteDatabase bd = DatabaseHelper.getInstance().openReadWrite();
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadWrite();
         ContentValues cv = new ContentValues();
         cv.put("username",usuario.getUsername());
+        cv.put("email",usuario.getEmail());
         cv.put("senha",usuario.getSenha());
         // Retorno id do novo registro ou -1 caso haja erro
         try {
-            long id = bd.insertOrThrow("usuario", null, cv);
-            bd.close();
+            long id = db.insertOrThrow("usuario", null, cv);
+            db.close();
             if(id != -1) {
                 usuario.setIdUsuario((int) id);
                 return Boolean.TRUE;
@@ -46,10 +48,10 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
      */
     @Override
     public Boolean delete(Integer idUsuario) {
-        SQLiteDatabase bd = DatabaseHelper.getInstance().openReadWrite();
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadWrite();
         // Retorna quantos registros foram alteradas
-        int i = bd.delete("usuario","usuario_id_usuario = ?",new String[] {idUsuario.toString()});
-        bd.close();
+        int i = db.delete("usuario","usuario_id_usuario = ?",new String[] {idUsuario.toString()});
+        db.close();
         return i != 0;
     }
 
@@ -61,8 +63,20 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
      */
     @Override
     public Boolean update(Usuario usuario) {
-        //TODO
-        return Boolean.FALSE;
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadWrite();
+        ContentValues cv = new ContentValues();
+        cv.put("username",usuario.getUsername());
+        cv.put("email",usuario.getEmail());
+        cv.put("senha",usuario.getSenha());
+        // Retorno id do novo registro ou -1 caso haja erro
+        int rows = db.update("usuario",cv,"usuario_id_usuario = ?",
+                new String[]{usuario.getIdUsuario().toString()});
+        db.close();
+        if(rows > 0) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
     }
 
     /**
@@ -72,8 +86,20 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
      */
     @Override
     public Usuario select(Integer idUsuario) {
-        //TODO
-        return null;
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+        Cursor c = db.rawQuery("SELECT usuario_id_usuario, username, email from usuario" +
+                " WHERE usuario_id_usuario = ?", new String[]{idUsuario.toString()});
+        Usuario u = null;
+        if (c != null) {
+            while (c.moveToNext()) {
+                u = new Usuario();
+                u.setIdUsuario(c.getInt(0));
+                u.setUsername(c.getString(1));
+                u.setEmail(c.getString(2));
+            }
+            c.close();
+        }
+        return u;
     }
 
     /**
@@ -83,13 +109,32 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
      */
     public Usuario selectPorExemplo(Usuario usuario) {
         SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
-        Cursor c = db.rawQuery("SELECT usuario_id_usuario from usuario" +
+        Cursor c = db.rawQuery("SELECT usuario_id_usuario, username, email from usuario" +
                 " WHERE username = ? AND senha = ?", new String[]{usuario.getUsername(), usuario.getSenha()});
         Usuario u = null;
         if (c != null) {
             while (c.moveToNext()) {
                 u = new Usuario();
                 u.setIdUsuario(c.getInt(0));
+                u.setUsername(c.getString(1));
+                u.setEmail(c.getString(2));
+            }
+            c.close();
+        }
+        return u;
+    }
+
+    public Usuario selectPorEmail(String email) {
+        SQLiteDatabase db = DatabaseHelper.getInstance().openReadOnly();
+        Cursor c = db.rawQuery("SELECT usuario_id_usuario, username, email from usuario" +
+                " WHERE email = ?", new String[]{email});
+        Usuario u = null;
+        if (c != null) {
+            while (c.moveToNext()) {
+                u = new Usuario();
+                u.setIdUsuario(c.getInt(0));
+                u.setUsername(c.getString(1));
+                u.setEmail(c.getString(2));
             }
             c.close();
         }

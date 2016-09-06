@@ -8,6 +8,7 @@ public class Usuario {
 
     private Integer idUsuario;
     private String username;
+    private String email;
     private String senha;
 
     public Integer getIdUsuario() {
@@ -16,6 +17,14 @@ public class Usuario {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {

@@ -4,15 +4,13 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import sdr.ufscar.dev.srdc.R;
-import sdr.ufscar.dev.srdc.dao.DatabaseHelper;
+import sdr.ufscar.dev.srdc.database.DatabaseHelper;
 import sdr.ufscar.dev.srdc.facade.CidadaoFacade;
 import sdr.ufscar.dev.srdc.facade.DadosClinicosFacade;
 import sdr.ufscar.dev.srdc.facade.RegistroColetaFacade;
@@ -39,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         cidadao.setCidade("Araraquara");
         Usuario usuario = new Usuario();
         usuario.setUsername("123");
+        usuario.setEmail("lschicks@mail.ccsf.edu");
         usuario.setSenha("123");
         cidadao.setUsuario(usuario);
 
@@ -87,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
             registroColeta = new RegistroColeta();
             glicemia = (glicemia + (i * 2)) % 400;
             if(glicemia < 40) glicemia = 40;
+            pressao_sistolica = ((pressao_sistolica * 2) % 100) + 100;
+            pressao_diastolica = ((pressao_diastolica * 2) % 80) + 80;
+            peso = 110 + ((peso + 1) % 110);
+            gasto_calorico = 100 * (peso % 4);
             registroColeta.setGlicemia(glicemia);
             registroColeta.setPressaoSistolica(pressao_sistolica);
             registroColeta.setPressaoDiastolica(pressao_diastolica);

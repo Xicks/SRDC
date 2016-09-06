@@ -17,6 +17,7 @@ public class DadosClinicos {
     private String cnes;
     private Date dataRegistro;
     private Integer altura;
+    private Integer peso;
     private ArrayList<DoencaEnum> doencas;
     private ArrayList<RegistroColeta> registrosColeta;
     private ArrayList<RegistroAtividadeFisica> registrosAtividadeFisica;
@@ -65,6 +66,14 @@ public class DadosClinicos {
         this.altura = altura;
     }
 
+    public Integer getPeso() {
+        return peso;
+    }
+
+    public void setPeso(Integer peso) {
+        this.peso = peso;
+    }
+
     public ArrayList<DoencaEnum> getDoencas() {
         return doencas;
     }
@@ -90,12 +99,17 @@ public class DadosClinicos {
     }
 
     public ArrayList<DiaEnum> getDiasColetaEnum() {
-        StringTokenizer tokenizer = new StringTokenizer(diasColeta);
-        ArrayList<DiaEnum> dias = new ArrayList<>(7);
-        while(tokenizer.hasMoreTokens()){
-            dias.add(DiaEnum.valueOf(tokenizer.nextToken()));
+        if(diasColeta != null) {
+            StringTokenizer tokenizer = new StringTokenizer(diasColeta);
+            ArrayList<DiaEnum> dias = new ArrayList<>(7);
+            while (tokenizer.hasMoreTokens()) {
+                dias.add(DiaEnum.valueOf(tokenizer.nextToken()));
+            }
+            return dias;
+        } else {
+            return new ArrayList<DiaEnum>(0);
         }
-        return dias;
+
     }
 
     public String getDiasColeta() {

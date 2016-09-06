@@ -1,4 +1,4 @@
-package sdr.ufscar.dev.srdc.dao;
+package sdr.ufscar.dev.srdc.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -26,11 +26,11 @@ public class DatabaseHelper {
             db.setVersion(VERSION);
             db.execSQL("CREATE TABLE dados_clinicos(dados_clinicos_id_dados_clinicos INTEGER " +
                     "PRIMARY KEY AUTOINCREMENT, cns_profissional TEXT, cnes TEXT, " +
-                    "data_registro TEXT, altura INTEGER, i10_15 INTEGER DEFAULT 0, e10_e14 " +
+                    "data_registro TEXT, altura INTEGER, peso INTEGER, i10_15 INTEGER DEFAULT 0, e10_e14 " +
                     "INTEGER DEFAULT 0, e65_68 INTEGER DEFAULT 0, observacoes TEXT, " +
                     "dias_coleta TEXT, enviar_notificacao INTEGER DEFAULT 0);");
             db.execSQL("CREATE TABLE usuario (usuario_id_usuario INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "username TEXT UNIQUE, senha TEXT);");
+                    "username TEXT UNIQUE, email TEXT UNIQUE,senha TEXT);");
             db.execSQL("CREATE TABLE cidadao (cidadao_id_cidadao INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "cidadao_id_usuario INTEGER, cidadao_id_dados_clinicos INTEGER, nome TEXT, " +
                     "cpf_cns TEXT, data_nascimento TEXT, cidade TEXT, estado TEXT, " +

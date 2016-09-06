@@ -3,6 +3,8 @@
     package="sdr.ufscar.dev.srdc">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".application.SRDCApplication"
@@ -11,13 +13,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".activity.LoginActivity"
-            android:label="@string/empty" />
+            android:label="@string/empty"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.CadastroCidadaoActivity"
             android:label="@string/activity_cadastro_cidadao_title"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.MainActivity"
             android:noHistory="true"
@@ -30,34 +37,46 @@
         </activity>
         <activity
             android:name=".activity.CadastroDadosClinicosActivity"
-            android:label="@string/activity_cadastro_dados_clinicos_title" />
+            android:label="@string/activity_cadastro_dados_clinicos_title"
+            android:configChanges="orientation"
+            android:noHistory="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.InicioActivity"
             android:label="@string/empty" />
-        <activity android:name=".activity.CadastroRegistroColetaActivity"
-            android:label="@string/activity_cadastro_registro_coleta_title"/>
+        <activity
+            android:name=".activity.CadastroRegistroColetaActivity"
+            android:label="@string/activity_cadastro_registro_coleta_title" />
         <activity
             android:name=".activity.CadastroRegistroAtividadeFisicaActivity"
             android:label="@string/activity_cadastro_registro_atividade_fisica_title" />
         <activity
             android:name=".activity.GraficoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
-        <activity android:name=".activity.EscolherVisualizacaoActivity"
-            android:label="@string/activity_escolher_visualizacao_title"/>
-        <activity android:name=".activity.ListaRegistros"
+        <activity
+            android:name=".activity.EscolherVisualizacaoActivity"
+            android:label="@string/activity_escolher_visualizacao_title" />
+        <activity
+            android:name=".activity.ListaRegistros"
             android:label="@string/activity_lista_registros_title"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".activity.AjudaCadastroRegistroAtividadeFisicaActivity"
             android:label="@string/activity_ajuda_cadastro_registro_atividade_fisica_title"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".activity.AjudaInicioActivity"
             android:label="@string/activity_ajuda_inicio_title"
-            android:noHistory="true"/>
-        <activity android:name=".activity.AjudaCadastroRegistroColetaActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".activity.AjudaCadastroRegistroColetaActivity"
             android:label="@string/activity_ajuda_cadastro_registro_coleta_title"
-            android:noHistory="true"/>
+            android:noHistory="true" />
+        <activity android:name=".activity.RecuperarSenhaActivity"
+            android:label="@string/activity_recuperar_senha_title"
+            android:noHistory="true"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>/>
     </application>
 
 </manifest>
